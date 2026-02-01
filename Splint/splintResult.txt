@@ -1,0 +1,91 @@
+Splint 3.1.1 --- 12 April 2003
+
+../Source/entity.c: (in function processEntity)
+../Source/entity.c(68,9): Assignment of int to float:
+                             e->trueWeight = e->outputTimeTrue
+  To allow all numeric types to match, use +relaxtypes.
+../Source/entity.c(69,9): Assignment of int to float:
+                             e->falseWeight = e->outputTimeFalse
+../Source/entity.c(74,9): Assignment of int to float:
+                             e->trueWeight = e->outputTimeTrue / e->error
+../Source/entity.c(75,9): Assignment of int to float:
+                             e->falseWeight = e->outputTimeFalse / e->error
+../Source/entity.c: (in function printEntityState)
+../Source/entity.c(121,19): Format argument 1 to printf (%d) expects int gets
+                               bool: e->input
+  Type of parameter is not consistent with corresponding code in format string.
+  (Use -formattype to inhibit warning)
+   ../Source/entity.c(121,14): Corresponding format code
+../Source/entity.c(122,19): Format argument 1 to printf (%d) expects int gets
+                               bool: e->output
+   ../Source/entity.c(122,14): Corresponding format code
+../Source/entity.c(123,19): Format argument 1 to printf (%d) expects int gets
+                               bool: e->previousOutput
+   ../Source/entity.c(123,14): Corresponding format code
+../Source/entity.c(138,28): Format argument 1 to printf (%d) expects int gets
+                               bool: e->inputs[sample]
+   ../Source/entity.c(138,22): Corresponding format code
+../Source/entity.c(142,28): Format argument 1 to printf (%d) expects int gets
+                               bool: e->outputs[sample]
+   ../Source/entity.c(142,22): Corresponding format code
+../Source/main.c(12,6): Function main declared to return void, should return
+                           int
+  The function main does not match the expected type. (Use -maintype to inhibit
+  warning)
+../Source/main.c: (in function main)
+../Source/main.c(17,9): Unrecognized identifier: Sleep
+  Identifier used in code has not been declared. (Use -unrecog to inhibit
+  warning)
+../Source/mapping.c: (in function initialiseMapping)
+../Source/mapping.c(7,5): Implicitly only storage m->outputPort.e (type entity
+    *) not released before assignment: m->outputPort.e = output
+  A memory leak has been detected. Only-qualified storage is not released
+  before the last reference to it is lost. (Use -mustfreeonly to inhibit
+  warning)
+../Source/mapping.c(7,5): Implicitly temp storage output assigned to implicitly
+                             only: m->outputPort.e = output
+  Temp storage (associated with a formal parameter) is transferred to a
+  non-temporary reference. The storage may be released or new aliases created.
+  (Use -temptrans to inhibit warning)
+../Source/mapping.c(13,9): Assignment of boolean to entity *:
+                              m->inputPorts[inputPort].e = false
+  Types are incompatible. (Use -type to inhibit warning)
+../Source/mapping.c(13,9): Implicitly only storage m->inputPorts[].e (type
+    entity *) not released before assignment:
+    m->inputPorts[inputPort].e = false
+../Source/mapping.c(19,2): Function returns with null storage derivable from
+                              parameter m->inputPorts[].e
+  A possibly null pointer is reachable from a parameter or global variable that
+  is not declared using a /*@null@*/ annotation. (Use -nullstate to inhibit
+  warning)
+   ../Source/mapping.c(13,38): Storage m->inputPorts[].e becomes null
+../Source/mapping.c: (in function addInputPortToMapping)
+../Source/mapping.c(25,9): Implicitly temp storage input assigned to implicitly
+                              only: m->inputPorts[m->inputPortCount].e = input
+../Source/mapping.c: (in function evaluateMapping)
+../Source/mapping.c(41,10): Variable evaluation declared but not used
+  A variable is declared but never used. Use /*@unused@*/ in front of
+  declaration to suppress message. (Use -varuse to inhibit warning)
+../Source/mapping.c: (in function printMappingState)
+../Source/mapping.c(110,33): Parameter m not used
+  A function parameter is not used in the body of the function. If the argument
+  is needed for type compatibility or future plans, use /*@unused@*/ in the
+  argument declaration. (Use -paramuse to inhibit warning)
+../Source/world.c: (in function initialiseRegions)
+../Source/world.c(24,5): Return value (type bool) ignored: addLayerToRegion...
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalbool to inhibit warning)
+../Source/world.c(25,5): Return value (type bool) ignored: addEntityToRegio...
+../Source/world.c(26,5): Return value (type bool) ignored: addEntityToRegio...
+../Source/world.c(28,5): Return value (type bool) ignored: addMappingToRegi...
+../Source/world.c(29,5): Return value (type bool) ignored: addInputPortToMa...
+../Source/world.c(31,5): Return value (type bool) ignored: addMappingToRegi...
+../Source/world.c(32,5): Return value (type bool) ignored: addInputPortToMa...
+../Source/world.c(7,8): Variable exported but not used outside world: regions
+  A declaration is exported, but not used outside this module. Declaration can
+  use static qualifier. (Use -exportlocal to inhibit warning)
+../Source/world.c(9,6): Function exported but not used outside world:
+                           updateRegions
+   ../Source/world.c(55,1): Definition of updateRegions
+
+Finished checking --- 28 code warnings

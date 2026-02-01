@@ -1,0 +1,1 @@
+C:\splint-3.1.1\bin\splint.exe -preproc -I../Source/ ../Source/*.c > splintResult.txt 2>&1

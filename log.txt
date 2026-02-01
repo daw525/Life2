@@ -1,0 +1,11 @@
+./Source/main.c:12:6: warning: return type of 'main' is not 'int' [-Wmain]
+   12 | void main(void) {
+      |      ^~~~
+./Source/mapping.c: In function 'evaluateMapping':
+./Source/mapping.c:41:10: warning: unused variable 'evaluation' [-Wunused-variable]
+   41 |     bool evaluation;
+      |          ^~~~~~~~~~
+./Source/region.c: In function 'processRegion':
+./Source/region.c:69:17: warning: variable 'firstPass' set but not used [-Wunused-but-set-variable]
+   69 |     static bool firstPass=true;
+      |                 ^~~~~~~~~
