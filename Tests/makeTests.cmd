@@ -1,0 +1,1 @@
+gcc TestEntity.c ../Source/entity.c ./Unity/unity.c -o TestEntity.exe
