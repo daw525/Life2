@@ -1,0 +1,1 @@
+gcc ./Source/main.c ./Source/world.c ./Source/entity.c ./Source/mapping.c ./Source/region.c -o Life2.exe
