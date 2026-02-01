@@ -30,7 +30,7 @@ typedef struct {
     int offThreshold;
 } mapping;
 
-void initialiseMapping(mapping *m, mapType type, entity *output, bool invertOutput);
+void initialiseMapping(/*@null@*/mapping *m, mapType type, entity *output, bool invertOutput);
 bool addInputPortToMapping(mapping *m, entity *input, bool invert);
 void setMappingThresholds(mapping *m, int onThresdhold, int offThreshold);
 void evaluateMapping(mapping *m);

@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-void initialiseRegions(void);
+bool initialiseRegions(void);
 void tick(void);
 
 #endif /* _WORLD_H_*/

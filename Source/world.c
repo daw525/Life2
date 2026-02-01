@@ -4,12 +4,19 @@
 #include "region.h"
 
 #define MAX_REGION  (1) 
-region regions[MAX_REGION];
+static region regions[MAX_REGION];
 
-void updateRegions(void);
+static void updateRegions(void);
 
-void initialiseRegions(void) {
+/*!
+ * If initialisation of configuration data fails then the software shall abort.
+ *
+ * @param none
+ * @return bool 0 = success; 1 = failure
+ */
 
+bool initialiseRegions(void) {
+    bool initalisationFailure;
     /* Region 0 */
     initaliseRegion(&regions[0]);
 
@@ -21,15 +28,26 @@ void initialiseRegions(void) {
     regions[0].outputArray[0] = false;
     regions[0].outputArray[1] = false;
 
-    addLayerToRegion(&regions[0]);
-    addEntityToRegionLayer(&regions[0],5,5);
-    addEntityToRegionLayer(&regions[0],5,5);
-    
-    addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[0],false);
-    addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].layers[0].entities[1],false);
+    initalisationFailure = addLayerToRegion(&regions[0]);
+    if (initalisationFailure!=false) {return true;}
 
-    addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[1],false);
-    addInputPortToMapping(&regions[0].layers[0].mappings[1],&regions[0].layers[0].entities[0],false);
+    initalisationFailure = addEntityToRegionLayer(&regions[0],5,5);
+    if (initalisationFailure!=false) {return true;}
+
+    initalisationFailure = addEntityToRegionLayer(&regions[0],5,5);
+     if (initalisationFailure!=false) {return true;}
+
+    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[0],false);
+    if (initalisationFailure!=false) {return true;}
+
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].layers[0].entities[1],false);
+    if (initalisationFailure!=false) {return true;}
+
+    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[1],false);
+    if (initalisationFailure!=false) {return true;}
+
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[1],&regions[0].layers[0].entities[0],false);
+    if (initalisationFailure!=false) {return true;}
 
     /* Region 1 */
     // initaliseRegion(&regions[1]);
@@ -44,13 +62,15 @@ void initialiseRegions(void) {
     // addEntityToRegionLayer(&regions[1],5,5);
     // addMappingToRegionLayer(&regions[1],OR,&regions[0].inputArray[0],false);
     // addInputPortToMapping(&regions[1].layers[0].mappings[0],&regions[1].inputArray[0],false);
+
+    return false;
 }
 
 void updateRegions(void) {
     int r;
     for (r=0;r<MAX_REGION;r++) {
         processRegion(&regions[r]);
-        printRegionState(&regions[r]);
+        //printRegionState(&regions[r]);
     }
 }
 

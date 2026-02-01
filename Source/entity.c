@@ -65,14 +65,14 @@ void processEntity(entity *e) {
 
     if (e->error == 0) {
         /* if error is zero, then either outputTimeTrue or outputTimeFalse are INTEGRATION_TIME and the other one is zero */
-        e->trueWeight = e->outputTimeTrue;
-        e->falseWeight = e->outputTimeFalse;
+        e->trueWeight = (float)e->outputTimeTrue;
+        e->falseWeight = (float)e->outputTimeFalse;
     } else {
         /*  This could be improved..
             Could consider if trend is growing or shirinking..
             How fast is it changing... */
-        e->trueWeight = e->outputTimeTrue / e->error;
-        e->falseWeight = e->outputTimeFalse / e->error;
+        e->trueWeight = (float)e->outputTimeTrue / e->error;
+        e->falseWeight = (float)e->outputTimeFalse / e->error;
     } 
 
     e->output = e->trueWeight >= e->falseWeight;
@@ -118,9 +118,9 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
 
     printf("%d\t",time);
     printf("%d\t",identifier);
-    printf("%d\t",e->input);
-    printf("%d\t",e->output);
-    printf("%d\t",e->previousOutput);
+    printf("%d\t",(int)e->input);
+    printf("%d\t",(int)e->output);
+    printf("%d\t",(int)e->previousOutput);
     
     if (verbose) {
         printf("%d\t",e->integrationTime);
@@ -135,11 +135,11 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
         printf("%d\t",e->flipTime);
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {
-            printf("%d\t", e->inputs[sample]);
+            printf("%d\t", (int)e->inputs[sample]);
         }
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {
-            printf("%d\t", e->outputs[sample]);
+            printf("%d\t", (int)e->outputs[sample]);
         }
     }
 

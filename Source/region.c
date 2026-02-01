@@ -3,26 +3,21 @@
 void printRegionState(region *r) {
     int layer, entity, mapping;
     static bool firstPass = true;
-    //printf("inputCount: %d\r\n",r->inputCount);
-    //bool inputArray[MAX_INPUT];
-    //printf("layerCount: %d\r\n",r->layerCount);
+    printf("inputCount: %d\r\n",r->inputCount);
+    printf("layerCount: %d\r\n",r->layerCount);
     for (layer=0;layer<r->layerCount;layer++) {
-        //printf("Layer: %d\r\n", layer);
-        //printf("entityCount: %d\r\n",r->layers[layer].entityCount);
+        printf("Layer: %d\r\n", layer);
+        printf("entityCount: %d\r\n",r->layers[layer].entityCount);
         for (entity=0;entity<r->layers[layer].entityCount;entity++) {
-            //printf("Entity: %d\r\n",entity);
+            printf("Entity: %d\r\n",entity);
             printEntityState(0,entity,&r->layers[layer].entities[entity],firstPass,true);
             firstPass = false;
         }
-        //firstPass = true;
-        for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
-           //Mapping: %d\r\n",mapping);
-            //printMappingState(&r->layers[layer].mappings[mapping]);
+         for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
+            printf("Mapping: %d\r\n",mapping);
+            printMappingState(&r->layers[layer].mappings[mapping]);
         }
      }
-    //layer layers[MAX_LAYER];
-    //printf("outputCount: %d\r\n",r->outputCount);
-    //bool outputArray[MAX_OUTPUT];
 }
 
 void initaliseRegion(region *r) {
@@ -30,42 +25,59 @@ void initaliseRegion(region *r) {
     r->layerCount=0;
     r->outputCount=0;
 }
-
+/*!
+ *
+ *
+ * @param Pointer to region
+ * @return 0 = success; 1 = failure
+ */
 bool addLayerToRegion(region *r) {
     if (r->layerCount >= MAX_LAYER) {
-        return false;
+        return true;
     } else {
         r->layerCount++;
-        return true;
+        return false;
     }
 }
 
+/*!
+ *
+ *
+ * @param 
+ * @return 0 = success; 1 = failure
+ */
 bool addEntityToRegionLayer(region *r, int integrationTime, int flipTime) {
     int currentLayer = r->layerCount-1; /* Minus one because it got incremented after new layer added */
     int currentEntitity = r->layers[currentLayer].entityCount;
     if (currentEntitity >= MAX_ENTITY) {
-        return false;
+        return true;
     } else {
         initialiseEntity(&r->layers[currentLayer].entities[currentEntitity],integrationTime,flipTime);
         r->layers[currentLayer].entityCount++;
-        return true;
+        return false;
     }
 }
 
+/*!
+ *
+ *
+ * @param 
+ * @return 0 = success; 1 = failure
+ */
 bool addMappingToRegionLayer(region *r, mapType type, entity *output, bool invertOutput) {
     int currentLayer = r->layerCount-1;  /* Minus one because it got incremented after new layer added */
     int currentMapping = r->layers[currentLayer].mappingCount;
     if (currentMapping >= MAX_MAPPING) {
-        return false;
+        return true;
     } else {
         initialiseMapping(&r->layers[currentLayer].mappings[currentMapping],type,output,invertOutput);
         r->layers[currentLayer].mappingCount++;
-        return true;
+        return false;
     }
 }
 
 void processRegion(region *r) {
-    #define VERBOSE (true)
+    #define VERBOSE (false)
     static bool firstPass=true;
     static int time=0;
 
@@ -73,7 +85,7 @@ void processRegion(region *r) {
     for (layer=0;layer<r->layerCount;layer++) {
         for (entity=0;entity<r->layers[layer].entityCount;entity++) {
             processEntity(&r->layers[layer].entities[entity]);
-            //printEntityState(time,entity,&r->layers[layer].entities[entity],firstPass,VERBOSE);
+            printEntityState(time,entity,&r->layers[layer].entities[entity],firstPass,VERBOSE);
             firstPass = false;
         }
         for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
@@ -81,7 +93,7 @@ void processRegion(region *r) {
             //printMappingState(&r->layers[layer].mappings[mapping]);
         }
     }
-    printRegionState(r);
+    //printRegionState(r);
 
     time++;
 }
