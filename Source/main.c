@@ -4,6 +4,11 @@
 
 #define MAX_ITERATION   (15)
 
+/*! Main function description
+ * 
+ * @param none
+ * @return none
+ * */
 void main(void) {
     uint8_t i;
     initialiseRegions();
