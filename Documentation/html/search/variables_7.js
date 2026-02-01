@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['regions_0',['regions',['../world_8c.html#a4772855802b6ad6cd376f2c5d644ea64',1,'world.c']]]
+  ['trueweight_0',['trueWeight',['../structentity.html#ab45965e6badb99e8e4d7204056402555',1,'entity']]],
+  ['type_1',['type',['../structmapping.html#a0d8b90f10486299443883ef490c2d264',1,'mapping']]]
 ];

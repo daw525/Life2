@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateregions_0',['updateRegions',['../world_8c.html#adcc5537ffcd396c6113dcd3752a21e9a',1,'world.c']]]
+  ['verbose_0',['VERBOSE',['../region_8c.html#a42f8c497a1968074f38bf5055c650dca',1,'region.c']]]
 ];
