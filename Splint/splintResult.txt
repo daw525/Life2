@@ -5,13 +5,6 @@ Splint 3.1.1 --- 12 April 2003
   Identifier used in code has not been declared. (Use -unrecog to inhibit
   warning)
 ../Source/mapping.c: (in function initialiseMapping)
-../Source/mapping.c(5,6): Arrow access from possibly null pointer m:
-                             m->evaluation
-  A possibly null pointer is dereferenced.  Value is either the result of a
-  function which may return null (in which case, code should check it is not
-  null), or a global, parameter or structure field declared with the null
-  qualifier. (Use -nullderef to inhibit warning)
-   ../Source/mapping.c(3,43): Storage m may become null
 ../Source/mapping.c(7,5): Implicitly only storage m->outputPort.e (type entity
     *) not released before assignment: m->outputPort.e = output
   A memory leak has been detected. Only-qualified storage is not released
@@ -23,7 +16,7 @@ Splint 3.1.1 --- 12 April 2003
   non-temporary reference. The storage may be released or new aliases created.
   (Use -temptrans to inhibit warning)
 ../Source/mapping.c(13,9): Implicitly only storage m->inputPorts[].e (type
-    entity *) not released before assignment: m->inputPorts[inputPort].e = 0
+    entity *) not released before assignment: m->inputPorts[inputPort].e = NULL
 ../Source/mapping.c(19,2): Function returns with null storage derivable from
                               parameter m->inputPorts[].e
   A possibly null pointer is reachable from a parameter or global variable that
@@ -34,4 +27,4 @@ Splint 3.1.1 --- 12 April 2003
 ../Source/mapping.c(32,9): Implicitly temp storage input assigned to implicitly
                               only: m->inputPorts[m->inputPortCount].e = input
 
-Finished checking --- 7 code warnings
+Finished checking --- 6 code warnings

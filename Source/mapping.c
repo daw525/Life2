@@ -1,6 +1,6 @@
 #include "mapping.h"
 
-void initialiseMapping(/*@null@*/mapping *m, mapType type, entity *output, bool invertOutput) {
+void initialiseMapping(mapping *m, mapType type, entity *output, bool invertOutput) {
     int inputPort;
     m->evaluation = false;
     m->type = type;
@@ -10,7 +10,7 @@ void initialiseMapping(/*@null@*/mapping *m, mapType type, entity *output, bool 
     m->inputPortCount = 0;
     /* Initialise all input ports to disabled */
     for (inputPort=0;inputPort<MAX_INPUT_PORT;inputPort++) {
-        m->inputPorts[inputPort].e = 0;
+        m->inputPorts[inputPort].e = NULL;
         m->inputPorts[inputPort].invert = false;
         m->inputPorts[inputPort].enabled = false;
     }
@@ -25,7 +25,7 @@ void initialiseMapping(/*@null@*/mapping *m, mapType type, entity *output, bool 
  * @return 0 = success; 1 = failure
  */
 
-bool addInputPortToMapping(mapping *m, entity *input, bool invert) {
+bool addInputPortToMapping(mapping *m, entity *input, const bool invert) {
     if (m->inputPortCount >=MAX_INPUT_PORT) {
         return true;
     } else {
