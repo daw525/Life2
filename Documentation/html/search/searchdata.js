@@ -1,12 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "_aefgilmoprstvwx",
+  0: "_acefgilmoprstvwx",
   1: "elmpr",
-  2: "egmrw",
-  3: "aeimpst",
-  4: "efilmopt",
-  5: "m",
-  6: "aotx",
+  2: "cegmrw",
+  3: "aceimopst",
+  4: "efilmoprt",
+  5: "cm",
+  6: "aeilmortx",
   7: "_mv"
 };
 

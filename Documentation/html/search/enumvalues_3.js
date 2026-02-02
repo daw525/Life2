@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xor_0',['XOR',['../mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429dfac62338ffb5de22369c75caa565b5da1a',1,'mapping.h']]]
+  ['layer_0',['LAYER',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa10f0c667cbe1b561b97fc1d4050d49e5',1,'configure.c']]]
 ];

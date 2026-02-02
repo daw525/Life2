@@ -1,12 +1,19 @@
 <map id="C:/Users/dwl80/Desktop/Programs/Life2/Source/mapping.h" name="C:/Users/dwl80/Desktop/Programs/Life2/Source/mapping.h">
 <area shape="rect" id="Node000001" title=" " alt="" coords="195,5,360,64"/>
 <area shape="rect" id="Node000002" href="$mapping_8c.html" title=" " alt="" coords="5,112,171,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,73,141,114,138,109,215,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,74,141,114,138,110,214,69"/>
 <area shape="rect" id="Node000003" href="$region_8h.html" title=" " alt="" coords="195,112,360,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="279,77,280,113,275,110,276,82"/>
-<area shape="rect" id="Node000005" href="$world_8c.html" title=" " alt="" coords="315,219,480,277"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="338,71,358,89,374,111,387,138,394,166,400,220,395,217,389,167,382,139,370,113,354,93,337,76"/>
-<area shape="rect" id="Node000004" href="$region_8c.html" title=" " alt="" coords="125,219,291,277"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="252,182,229,220,225,216,248,185"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="323,179,367,219,362,218,321,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,77,280,113,275,111,276,82"/>
+<area shape="rect" id="Node000008" href="$world_8c.html" title=" " alt="" coords="409,325,575,384"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="334,71,371,99,407,134,442,173,469,217,480,245,487,274,493,327,489,324,482,275,475,247,464,220,437,176,404,137,367,103,333,76"/>
+<area shape="rect" id="Node000004" href="$configure_8c.html" title=" " alt="" coords="5,325,171,384"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="178,178,121,203,90,220,79,245,76,273,82,325,77,325,70,273,74,244,86,217,119,198,182,174"/>
+<area shape="rect" id="Node000005" href="$region_8c.html" title=" " alt="" coords="100,219,265,277"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="243,180,210,220,207,216,239,184"/>
+<area shape="rect" id="Node000006" href="$world_8h.html" title=" " alt="" coords="289,219,455,277"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="314,180,349,218,344,218,313,185"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="277,284,167,327,165,322,282,282"/>
+<area shape="rect" id="Node000007" href="$main_8c.html" title=" " alt="" coords="220,325,385,384"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="347,289,323,327,320,323,342,292"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="417,285,462,325,457,324,415,290"/>
 </map>

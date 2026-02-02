@@ -1,20 +1,8 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
-  ['mapping_2',['mapping',['../structmapping.html',1,'']]],
-  ['mapping_2ec_3',['mapping.c',['../mapping_8c.html',1,'']]],
-  ['mapping_2eh_4',['mapping.h',['../mapping_8h.html',1,'']]],
-  ['mappingcount_5',['mappingCount',['../structlayer.html#a8456c3da476801799f723bf379a72019',1,'layer']]],
-  ['mappings_6',['mappings',['../structlayer.html#a6ea19151565b3b7c76ebc36198bea855',1,'layer']]],
-  ['maptype_7',['mapType',['../mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429df',1,'mapping.h']]],
-  ['max_5fentity_8',['MAX_ENTITY',['../region_8h.html#ae2278b1dd3af4a0881d7dfb60f69daa5',1,'region.h']]],
-  ['max_5finput_9',['MAX_INPUT',['../region_8h.html#a00c1f0e7816626f58349492ef0720b5f',1,'region.h']]],
-  ['max_5finput_5fport_10',['MAX_INPUT_PORT',['../mapping_8h.html#a59ebdeae33abfa0a8b5fc514ce6b896c',1,'mapping.h']]],
-  ['max_5fiteration_11',['MAX_ITERATION',['../main_8c.html#aefa7672f40a44cb9b17c8fb46210d1fd',1,'main.c']]],
-  ['max_5flayer_12',['MAX_LAYER',['../region_8h.html#a912d8a5fc768baa70d250f6d8f0cf751',1,'region.h']]],
-  ['max_5fmapping_13',['MAX_MAPPING',['../region_8h.html#ac1a51d22e7b2a91b3390755485276f76',1,'region.h']]],
-  ['max_5foutput_14',['MAX_OUTPUT',['../region_8h.html#a38afea15614bc71fe955c04b1a28a853',1,'region.h']]],
-  ['max_5fregion_15',['MAX_REGION',['../world_8c.html#ae5ec1722888fa94f312ad1f5cf92238d',1,'world.c']]],
-  ['max_5fsample_16',['MAX_SAMPLE',['../entity_8h.html#a29cc2a2fe6d3f7142e197a54d6a91a85',1,'entity.h']]]
+  ['layer_0',['LAYER',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa10f0c667cbe1b561b97fc1d4050d49e5',1,'configure.c']]],
+  ['layer_1',['layer',['../structlayer.html',1,'']]],
+  ['layer_5ftok_2',['LAYER_TOK',['../configure_8c.html#a42080855a40ee9b0bafc83e2223e1744',1,'configure.c']]],
+  ['layercount_3',['layerCount',['../structregion.html#a3e69185f25b7b306dd5fca9ecaeab1ec',1,'region']]],
+  ['layers_4',['layers',['../structregion.html#a9b5a4ea02ed7d5749ee0de713f0c86ab',1,'region']]]
 ];

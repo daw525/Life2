@@ -1,7 +1,9 @@
 <map id="C:/Users/dwl80/Desktop/Programs/Life2/Source/world.h" name="C:/Users/dwl80/Desktop/Programs/Life2/Source/world.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="100,5,265,64"/>
-<area shape="rect" id="Node000002" href="$main_8c.html" title=" " alt="" coords="5,112,171,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,74,116,114,112,110,144,77"/>
-<area shape="rect" id="Node000003" href="$world_8c.html" title=" " alt="" coords="195,112,360,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,73,254,112,249,111,218,78"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="195,5,360,64"/>
+<area shape="rect" id="Node000002" href="$configure_8c.html" title=" " alt="" coords="5,112,171,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,70,141,114,138,109,210,73"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title=" " alt="" coords="195,112,360,171"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="279,78,280,113,275,110,276,82"/>
+<area shape="rect" id="Node000004" href="$world_8c.html" title=" " alt="" coords="384,112,549,171"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="343,69,418,112,412,112,341,74"/>
 </map>

@@ -1,5 +1,7 @@
 var dir_74389ed8173ad57b461b9d623a1f3867 =
 [
+    [ "configure.c", "configure_8c.html", "configure_8c" ],
+    [ "configure.h", "configure_8h.html", "configure_8h" ],
     [ "entity.c", "entity_8c.html", "entity_8c" ],
     [ "entity.h", "entity_8h.html", "entity_8h" ],
     [ "global.h", "global_8h.html", "global_8h" ],

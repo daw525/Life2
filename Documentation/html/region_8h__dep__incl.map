@@ -1,7 +1,14 @@
 <map id="C:/Users/dwl80/Desktop/Programs/Life2/Source/region.h" name="C:/Users/dwl80/Desktop/Programs/Life2/Source/region.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="100,5,265,64"/>
-<area shape="rect" id="Node000002" href="$region_8c.html" title=" " alt="" coords="5,112,171,171"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,74,116,114,112,110,144,77"/>
-<area shape="rect" id="Node000003" href="$world_8c.html" title=" " alt="" coords="195,112,360,171"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,73,254,112,249,111,218,78"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="65,5,231,64"/>
+<area shape="rect" id="Node000002" href="$configure_8c.html" title=" " alt="" coords="5,219,171,277"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,76,69,93,56,113,49,139,52,167,61,194,72,218,67,218,56,196,47,168,44,139,51,111,65,90,86,71"/>
+<area shape="rect" id="Node000003" href="$region_8c.html" title=" " alt="" coords="65,112,231,171"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,77,151,112,145,111,147,82"/>
+<area shape="rect" id="Node000004" href="$world_8h.html" title=" " alt="" coords="255,112,420,171"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="213,69,288,111,283,112,212,74"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="258,176,157,221,155,216,253,178"/>
+<area shape="rect" id="Node000005" href="$main_8c.html" title=" " alt="" coords="224,219,389,277"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="327,184,317,220,313,216,323,187"/>
+<area shape="rect" id="Node000006" href="$world_8c.html" title=" " alt="" coords="413,219,579,277"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="394,177,455,219,450,218,392,182"/>
 </map>

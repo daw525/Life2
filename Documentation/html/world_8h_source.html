@@ -95,14 +95,22 @@ $(function(){initNavTree('world_8h_source.html','',''); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _WORLD_H_</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="global_8h.html">global.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">bool</span> <a class="code hl_function" href="world_8h.html#aeebfcd139fa49be8e858387da1738801">initialiseRegions</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> <a class="code hl_function" href="world_8h.html#aa3ee3d125e326d4791b0a11ea77b19ee">tick</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#endif </span><span class="comment">/* _WORLD_H_*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="region_8h.html">region.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">bool</span> <a class="code hl_function" href="world_8h.html#aeebfcd139fa49be8e858387da1738801">initialiseRegions</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> <a class="code hl_function" href="world_8h.html#aa3ee3d125e326d4791b0a11ea77b19ee">tick</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="world_8h.html#ae5ec1722888fa94f312ad1f5cf92238d">   10</a></span><span class="preprocessor">#define MAX_REGION  (1) </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">extern</span> <a class="code hl_struct" href="structregion.html">region</a> <a class="code hl_variable" href="world_8c.html#a4772855802b6ad6cd376f2c5d644ea64">regions</a>[<a class="code hl_define" href="world_8h.html#ae5ec1722888fa94f312ad1f5cf92238d">MAX_REGION</a>];</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif </span><span class="comment">/* _WORLD_H_*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aglobal_8h_html"><div class="ttname"><a href="global_8h.html">global.h</a></div></div>
-<div class="ttc" id="aworld_8h_html_aa3ee3d125e326d4791b0a11ea77b19ee"><div class="ttname"><a href="world_8h.html#aa3ee3d125e326d4791b0a11ea77b19ee">tick</a></div><div class="ttdeci">void tick(void)</div><div class="ttdef"><b>Definition</b> world.c:113</div></div>
-<div class="ttc" id="aworld_8h_html_aeebfcd139fa49be8e858387da1738801"><div class="ttname"><a href="world_8h.html#aeebfcd139fa49be8e858387da1738801">initialiseRegions</a></div><div class="ttdeci">bool initialiseRegions(void)</div><div class="ttdef"><b>Definition</b> world.c:18</div></div>
+<div class="ttc" id="aregion_8h_html"><div class="ttname"><a href="region_8h.html">region.h</a></div></div>
+<div class="ttc" id="astructregion_html"><div class="ttname"><a href="structregion.html">region</a></div><div class="ttdef"><b>Definition</b> region.h:21</div></div>
+<div class="ttc" id="aworld_8c_html_a4772855802b6ad6cd376f2c5d644ea64"><div class="ttname"><a href="world_8c.html#a4772855802b6ad6cd376f2c5d644ea64">regions</a></div><div class="ttdeci">region regions[MAX_REGION]</div><div class="ttdef"><b>Definition</b> world.c:5</div></div>
+<div class="ttc" id="aworld_8h_html_aa3ee3d125e326d4791b0a11ea77b19ee"><div class="ttname"><a href="world_8h.html#aa3ee3d125e326d4791b0a11ea77b19ee">tick</a></div><div class="ttdeci">void tick(void)</div><div class="ttdef"><b>Definition</b> world.c:111</div></div>
+<div class="ttc" id="aworld_8h_html_ae5ec1722888fa94f312ad1f5cf92238d"><div class="ttname"><a href="world_8h.html#ae5ec1722888fa94f312ad1f5cf92238d">MAX_REGION</a></div><div class="ttdeci">#define MAX_REGION</div><div class="ttdef"><b>Definition</b> world.h:10</div></div>
+<div class="ttc" id="aworld_8h_html_aeebfcd139fa49be8e858387da1738801"><div class="ttname"><a href="world_8h.html#aeebfcd139fa49be8e858387da1738801">initialiseRegions</a></div><div class="ttdeci">bool initialiseRegions(void)</div><div class="ttdef"><b>Definition</b> world.c:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

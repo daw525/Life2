@@ -1,9 +1,11 @@
 <map id="C:/Users/dwl80/Desktop/Programs/Life2/Source/global.h" name="C:/Users/dwl80/Desktop/Programs/Life2/Source/global.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="48,5,214,64"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="94,5,259,64"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,112,70,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,63,63,103,60,99,98,65"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,65,71,106,69,101,128,64"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="94,112,168,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,62,133,97,128,95,129,66"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,63,146,100,142,96,159,66"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="193,112,253,139"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="161,62,202,101,196,101,159,67"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="193,62,212,99,206,97,190,67"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="276,112,340,139"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="220,62,279,103,274,103,218,67"/>
 </map>

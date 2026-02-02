@@ -1,10 +1,16 @@
 var searchData=
 [
-  ['port_0',['port',['../structport.html',1,'']]],
-  ['previousoutput_1',['previousOutput',['../structentity.html#aa6749c7edeb34f5865b214320665bde6',1,'entity']]],
-  ['printentitystate_2',['printEntityState',['../entity_8c.html#aa401ccac4fd704838a54be7baef5d601',1,'printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose):&#160;entity.c'],['../entity_8h.html#aa401ccac4fd704838a54be7baef5d601',1,'printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose):&#160;entity.c']]],
-  ['printmappingstate_3',['printMappingState',['../mapping_8c.html#a9622c53afd1f1c8cf5bcdeabadb386a8',1,'printMappingState(mapping *m):&#160;mapping.c'],['../mapping_8h.html#a9622c53afd1f1c8cf5bcdeabadb386a8',1,'printMappingState(mapping *m):&#160;mapping.c']]],
-  ['printregionstate_4',['printRegionState',['../region_8c.html#a20e3e55892ae681d486a4aa16e0088de',1,'printRegionState(region *r):&#160;region.c'],['../region_8h.html#a20e3e55892ae681d486a4aa16e0088de',1,'printRegionState(region *r):&#160;region.c']]],
-  ['processentity_5',['processEntity',['../entity_8c.html#a1b31bae98a57882159bb308c9aafa344',1,'processEntity(entity *e):&#160;entity.c'],['../entity_8h.html#a1b31bae98a57882159bb308c9aafa344',1,'processEntity(entity *e):&#160;entity.c']]],
-  ['processregion_6',['processRegion',['../region_8c.html#ace1ed43f53398a0110d6e882bdc913ec',1,'processRegion(region *r):&#160;region.c'],['../region_8h.html#ace1ed43f53398a0110d6e882bdc913ec',1,'processRegion(region *r):&#160;region.c']]]
+  ['offthreshold_0',['offThreshold',['../structmapping.html#a202cdebbc5d4b9f4170fdd668e901d7a',1,'mapping']]],
+  ['onthreshold_1',['onThreshold',['../structmapping.html#a87e400fb445f18b32a6823cf3dc9fbb2',1,'mapping']]],
+  ['openfile_2',['openFile',['../configure_8c.html#a71dbb99ec6b9c7a8a5466513ee45377d',1,'configure.c']]],
+  ['or_3',['OR',['../mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429dfa96727447c0ad447987df1c6415aef074',1,'mapping.h']]],
+  ['output_4',['OUTPUT',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa2ab08d3e103968f5f4f26b66a52e99d6',1,'configure.c']]],
+  ['output_5',['output',['../structentity.html#ac8417b655d0d4543f38713f704fabcb4',1,'entity']]],
+  ['output_5ftok_6',['OUTPUT_TOK',['../configure_8c.html#aac0ee3506867a1b42cb6035c7507cac6',1,'configure.c']]],
+  ['outputarray_7',['outputArray',['../structregion.html#acc210acb73fbd276d9d5c4827b89a2ba',1,'region']]],
+  ['outputcount_8',['outputCount',['../structregion.html#a7cc014f5bcf71053ea9d57b0fcb51853',1,'region']]],
+  ['outputport_9',['outputPort',['../structmapping.html#a6ae32a2d725f9864eb5311b858b4987d',1,'mapping']]],
+  ['outputs_10',['outputs',['../structentity.html#afbcc6ffb5663ab1ffe00e304855624c2',1,'entity']]],
+  ['outputtimefalse_11',['outputTimeFalse',['../structentity.html#add22b5b0d30859bd50aa36b407bf7d5a',1,'entity']]],
+  ['outputtimetrue_12',['outputTimeTrue',['../structentity.html#a9d48e08009b7213363a8fd36e61e1397',1,'entity']]]
 ];

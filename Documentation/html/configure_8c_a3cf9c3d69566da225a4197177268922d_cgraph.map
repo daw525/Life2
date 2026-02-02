@@ -1,0 +1,11 @@
+<map id="parseLine" name="parseLine">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,83,83"/>
+<area shape="rect" id="Node000002" href="$region_8c.html#a543d128a14619e02a6d471dddae7de1e" title=" " alt="" coords="131,5,294,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,55,153,35,149,39,84,60"/>
+<area shape="rect" id="Node000004" href="$region_8c.html#a525f4f6785dff5ec02f11ae1040599f8" title=" " alt="" coords="148,56,277,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="82,67,135,68,130,71,83,72"/>
+<area shape="rect" id="Node000005" href="$region_8c.html#aa8ae9ebaf458d24fca7c5c8aa03cc2a0" title=" " alt="" coords="159,107,266,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="83,78,153,100,149,103,83,83"/>
+<area shape="rect" id="Node000003" href="$entity_8c.html#a2d73585e0408c790a35501ad952e033d" title=" " alt="" coords="342,5,444,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,16,329,18,324,19,295,21"/>
+</map>
