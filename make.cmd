@@ -1,1 +1,1 @@
-gcc -Wall ./Source/main.c ./Source/world.c ./Source/entity.c ./Source/mapping.c ./Source/region.c -o Life2.exe > log.txt 2>&1
+gcc -Wall ./Source/main.c ./Source/world.c ./Source/entity.c ./Source/mapping.c ./Source/region.c ./Source/configure.c -o Life2.exe > log.txt 2>&1

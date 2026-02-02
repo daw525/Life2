@@ -1,10 +1,8 @@
 #include "world.h"
 #include "entity.h"
 #include "mapping.h"
-#include "region.h"
 
-#define MAX_REGION  (1) 
-static region regions[MAX_REGION];
+region regions[MAX_REGION];
 
 static void updateRegions(void);
 

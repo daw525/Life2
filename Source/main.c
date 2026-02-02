@@ -1,6 +1,7 @@
+#include <windows.h>
 #include "global.h"
 #include "world.h"
-#include <windows.h>
+#include "configure.h"
 
 #define MAX_ITERATION   (15)
 
@@ -13,6 +14,8 @@ int main(void) {
     uint8_t i;
     bool initalisationFailed;
 
+    //return configure("configuration.csv");
+    
     initalisationFailed = initialiseRegions();
     if (initalisationFailed != false) {
         return EXIT_FAILURE;
