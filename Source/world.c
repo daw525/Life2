@@ -24,6 +24,22 @@ static void updateRegions(void);
 
 bool initialiseRegions(void) {
     bool initalisationFailure;
+
+    /*
+    MAP 1 is an OR gate. If IN 1 is set then removed, could we get it to oscilate
+    [IN 1]
+        |
+        -->[MAP 1]<----
+               |      |
+           [ENTITY 1] |
+                |     |
+             [MAP 2]  |
+                |     |
+            [ENTITY 2]-    
+                |  
+    */
+
+
     /* Region 0 */
     initaliseRegion(&regions[0]);
 
