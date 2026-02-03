@@ -30,7 +30,7 @@ typedef struct {
 void initaliseRegion(region *r);
 bool addLayerToRegion(region *r);
 bool addEntityToRegionLayer(region *r, int integrationTime, int flipTime);
-bool addMappingToRegionLayer(region *r, mapType type, entity *output, bool invertOutput);
+bool addMappingToRegionLayer(region *r, mapType type, bool *output, bool invertOutput);
 void processRegion(region *r);
 void printRegionState(region *r);
 

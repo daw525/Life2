@@ -1,16 +1,16 @@
 #include "mapping.h"
 
-void initialiseMapping(mapping *m, mapType type, entity *output, bool invertOutput) {
+void initialiseMapping(mapping *m, mapType type, bool *output, bool invertOutput) {
     int inputPort;
     m->evaluation = false;
     m->type = type;
-    m->outputPort.e = output;
+    m->outputPort.p = output;
     m->outputPort.invert = invertOutput;
     m->outputPort.enabled = true;
     m->inputPortCount = 0;
     /* Initialise all input ports to disabled */
     for (inputPort=0;inputPort<MAX_INPUT_PORT;inputPort++) {
-        m->inputPorts[inputPort].e = NULL;
+        m->inputPorts[inputPort].p = NULL;
         m->inputPorts[inputPort].invert = false;
         m->inputPorts[inputPort].enabled = false;
     }
@@ -25,11 +25,11 @@ void initialiseMapping(mapping *m, mapType type, entity *output, bool invertOutp
  * @return 0 = success; 1 = failure
  */
 
-bool addInputPortToMapping(mapping *m, entity *input, const bool invert) {
+bool addInputPortToMapping(mapping *m, bool *input, const bool invert) {
     if (m->inputPortCount >=MAX_INPUT_PORT) {
         return true;
     } else {
-        m->inputPorts[m->inputPortCount].e = input;
+        m->inputPorts[m->inputPortCount].p = input;
         m->inputPorts[m->inputPortCount].invert = invert;
         m->inputPorts[m->inputPortCount].enabled = true;
         m->inputPortCount++;
@@ -61,7 +61,7 @@ void evaluateMapping(mapping *m) {
 
         if (m->inputPorts[inputPort].enabled) {
 
-            inputPortState = m->inputPorts[inputPort].e->previousOutput;
+            inputPortState = m->inputPorts[inputPort].p;
 
             if (m->inputPorts[inputPort].invert) {
                 inputPortState = !inputPortState;
@@ -110,7 +110,7 @@ void evaluateMapping(mapping *m) {
     if(m->outputPort.invert) {
         m->evaluation = !m->evaluation;
     }
-    m->outputPort.e->input = m->evaluation; 
+    *m->outputPort.p = m->evaluation; 
 }
 
 void printMappingState(mapping *m) {

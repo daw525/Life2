@@ -14,7 +14,7 @@ typedef enum {
 } mapType;
 
 typedef struct {
-    entity *e;
+    bool *p;
     bool invert;
     bool enabled;
 } port;
@@ -29,8 +29,8 @@ typedef struct {
     int offThreshold;
 } mapping;
 
-void initialiseMapping(mapping *m, mapType type, entity *output, bool invertOutput);
-bool addInputPortToMapping(mapping *m, entity *input, bool invert);
+void initialiseMapping(mapping *m, mapType type, bool *output, bool invertOutput);
+bool addInputPortToMapping(mapping *m, bool *input, bool invert);
 void setMappingThresholds(mapping *m, int onThresdhold, int offThreshold);
 void evaluateMapping(mapping *m);
 void printMappingState(mapping *m);

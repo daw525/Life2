@@ -4,6 +4,12 @@
 
 region regions[MAX_REGION];
 
+//#define MAX_INPUT (1)
+//bool inputs[MAX_INPUT];
+
+//#define MAX_OUTPUT (1)
+//bool outputs[MAX_OUTPUT];
+
 static void updateRegions(void);
 
 /*!
@@ -35,16 +41,16 @@ bool initialiseRegions(void) {
     initalisationFailure = addEntityToRegionLayer(&regions[0],5,5);
      if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[0],false);
+    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[0].input,false);
     if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].layers[0].entities[1],false);
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].layers[0].entities[1].previousOutput,false);
     if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[1],false);
+    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[1].input,false);
     if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[1],&regions[0].layers[0].entities[0],false);
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[1],&regions[0].layers[0].entities[0].previousOutput,false);
     if (initalisationFailure!=false) {return true;}
 
     /* Region 1 */

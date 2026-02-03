@@ -29,27 +29,31 @@ Splint 3.1.1 --- 12 April 2003
   Identifier used in code has not been declared. (Use -unrecog to inhibit
   warning)
 ../Source/mapping.c: (in function initialiseMapping)
-../Source/mapping.c(7,5): Implicitly only storage m->outputPort.e (type entity
-    *) not released before assignment: m->outputPort.e = output
+../Source/mapping.c(7,5): Implicitly only storage m->outputPort.p (type bool *)
+    not released before assignment: m->outputPort.p = output
   A memory leak has been detected. Only-qualified storage is not released
   before the last reference to it is lost. (Use -mustfreeonly to inhibit
   warning)
 ../Source/mapping.c(7,5): Implicitly temp storage output assigned to implicitly
-                             only: m->outputPort.e = output
+                             only: m->outputPort.p = output
   Temp storage (associated with a formal parameter) is transferred to a
   non-temporary reference. The storage may be released or new aliases created.
   (Use -temptrans to inhibit warning)
-../Source/mapping.c(13,9): Implicitly only storage m->inputPorts[].e (type
-    entity *) not released before assignment: m->inputPorts[inputPort].e = NULL
+../Source/mapping.c(13,9): Implicitly only storage m->inputPorts[].p (type bool
+    *) not released before assignment: m->inputPorts[inputPort].p = NULL
 ../Source/mapping.c(19,2): Function returns with null storage derivable from
-                              parameter m->inputPorts[].e
+                              parameter m->inputPorts[].p
   A possibly null pointer is reachable from a parameter or global variable that
   is not declared using a /*@null@*/ annotation. (Use -nullstate to inhibit
   warning)
-   ../Source/mapping.c(13,38): Storage m->inputPorts[].e becomes null
+   ../Source/mapping.c(13,38): Storage m->inputPorts[].p becomes null
 ../Source/mapping.c: (in function addInputPortToMapping)
 ../Source/mapping.c(32,9): Implicitly temp storage input assigned to implicitly
-                              only: m->inputPorts[m->inputPortCount].e = input
+                              only: m->inputPorts[m->inputPortCount].p = input
+../Source/mapping.c: (in function evaluateMapping)
+../Source/mapping.c(64,13): Assignment of bool * to bool:
+                               inputPortState = m->inputPorts[inputPort].p
+  Types are incompatible. (Use -type to inhibit warning)
 ../Source/configure.c(6,12): Variable exported but not used outside configure:
                                 REGION_TOK
   A declaration is exported, but not used outside this module. Declaration can
@@ -71,4 +75,4 @@ Splint 3.1.1 --- 12 April 2003
                                  openFile
    ../Source/configure.c(256,1): Definition of openFile
 
-Finished checking --- 19 code warnings
+Finished checking --- 20 code warnings

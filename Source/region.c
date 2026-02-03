@@ -64,7 +64,7 @@ bool addEntityToRegionLayer(region *r, int integrationTime, int flipTime) {
  * @param 
  * @return 0 = success; 1 = failure
  */
-bool addMappingToRegionLayer(region *r, mapType type, entity *output, bool invertOutput) {
+bool addMappingToRegionLayer(region *r, mapType type, bool *output, bool invertOutput) {
     int currentLayer = r->layerCount-1;  /* Minus one because it got incremented after new layer added */
     int currentMapping = r->layers[currentLayer].mappingCount;
     if (currentMapping >= MAX_MAPPING) {
