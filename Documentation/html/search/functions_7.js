@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setmappingthresholds_0',['setMappingThresholds',['../mapping_8c.html#ad80315e986a923676ce11cdfc1351f4d',1,'setMappingThresholds(mapping *m, int onThresdhold, int offThreshold):&#160;mapping.c'],['../mapping_8h.html#ad80315e986a923676ce11cdfc1351f4d',1,'setMappingThresholds(mapping *m, int onThresdhold, int offThreshold):&#160;mapping.c']]]
+  ['run_0',['run',['../world_8c.html#a05e0ffe612d44e6d7f3a9ae5b9df56a2',1,'run(void):&#160;world.c'],['../world_8h.html#a05e0ffe612d44e6d7f3a9ae5b9df56a2',1,'run(void):&#160;world.c']]]
 ];

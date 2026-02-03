@@ -1,9 +1,6 @@
-#include <windows.h>
 #include "global.h"
 #include "world.h"
 #include "configure.h"
-
-#define MAX_ITERATION   (15)
 
 /*! Main function description
  * 
@@ -11,7 +8,6 @@
  * @return int: EXIT_FAILURE or EXIT_SUCCESS
  * */
 int main(void) {
-    uint8_t i;
     bool initalisationFailed;
 
     //return configure("configuration.csv");
@@ -20,10 +16,7 @@ int main(void) {
     if (initalisationFailed != false) {
         return EXIT_FAILURE;
     } else {
-        for(i=0;i<MAX_ITERATION;i++) {
-            tick();
-            Sleep(1);
-        }
+        run();
         return EXIT_SUCCESS;
     }
 }

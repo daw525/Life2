@@ -5,7 +5,7 @@
 #include "region.h"
 
 bool initialiseRegions(void);
-void tick(void);
+void run(void);
 
 #define MAX_REGION  (1) 
 extern region regions[MAX_REGION];

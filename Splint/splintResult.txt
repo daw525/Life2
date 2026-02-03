@@ -24,10 +24,6 @@ Splint 3.1.1 --- 12 April 2003
    ../Source/configure.c(234,12): Storage file may become null
 ../Source/configure.c(247,39): Function fgets expects arg 2 to be int gets
                                   size_t: sizeof((buffer))
-../Source/main.c: (in function main)
-../Source/main.c(25,13): Unrecognized identifier: Sleep
-  Identifier used in code has not been declared. (Use -unrecog to inhibit
-  warning)
 ../Source/mapping.c: (in function initialiseMapping)
 ../Source/mapping.c(7,5): Implicitly only storage m->outputPort.p (type bool *)
     not released before assignment: m->outputPort.p = output
@@ -50,10 +46,10 @@ Splint 3.1.1 --- 12 April 2003
 ../Source/mapping.c: (in function addInputPortToMapping)
 ../Source/mapping.c(32,9): Implicitly temp storage input assigned to implicitly
                               only: m->inputPorts[m->inputPortCount].p = input
-../Source/mapping.c: (in function evaluateMapping)
-../Source/mapping.c(64,13): Assignment of bool * to bool:
-                               inputPortState = m->inputPorts[inputPort].p
-  Types are incompatible. (Use -type to inhibit warning)
+../Source/world.c: (in function run)
+../Source/world.c(75,9): Unrecognized identifier: Sleep
+  Identifier used in code has not been declared. (Use -unrecog to inhibit
+  warning)
 ../Source/configure.c(6,12): Variable exported but not used outside configure:
                                 REGION_TOK
   A declaration is exported, but not used outside this module. Declaration can
@@ -74,5 +70,7 @@ Splint 3.1.1 --- 12 April 2003
 ../Source/configure.c(228,6): Function exported but not used outside configure:
                                  openFile
    ../Source/configure.c(256,1): Definition of openFile
+../Source/world.c(64,6): Function exported but not used outside world: tick
+   ../Source/world.c(66,1): Definition of tick
 
 Finished checking --- 20 code warnings

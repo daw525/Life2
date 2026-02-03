@@ -61,7 +61,7 @@ void evaluateMapping(mapping *m) {
 
         if (m->inputPorts[inputPort].enabled) {
 
-            inputPortState = m->inputPorts[inputPort].p;
+            inputPortState = *m->inputPorts[inputPort].p;
 
             if (m->inputPorts[inputPort].invert) {
                 inputPortState = !inputPortState;
@@ -114,7 +114,11 @@ void evaluateMapping(mapping *m) {
 }
 
 void printMappingState(mapping *m) {
+    int i;
     printf("inputPortCount: %d\r\n", m->inputPortCount);
+    for (i=0;i<m->inputPortCount;i++) {
+        printf("inputPorts[%i]: %d\r\n",i, (int)*m->inputPorts[i].p);
+    }
     printf("evaluation: %d\r\n", (int)m->evaluation);
     printf("onThreshold: %d\r\n", m->onThreshold);
     printf("offThreshold: %d\r\n", m->offThreshold);
