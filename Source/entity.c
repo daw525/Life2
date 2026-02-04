@@ -135,11 +135,11 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
         printf("%d\t",e->flipTime);
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {
-            printf("%d\t", (int)e->inputs[sample]);
+            printf("Sample %i: %d\t",sample, (int)e->inputs[sample]);
         }
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {
-            printf("%d\t", (int)e->outputs[sample]);
+            printf("Sample %i: %d\t",sample, (int)e->outputs[sample]);
         }
     }
 

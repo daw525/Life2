@@ -10,12 +10,12 @@ void printRegionState(region *r) {
         printf("entityCount: %d\r\n",r->layers[layer].entityCount);
         for (entity=0;entity<r->layers[layer].entityCount;entity++) {
             printf("Entity: %d\r\n",entity);
-            printEntityState(0,entity,&r->layers[layer].entities[entity],firstPass,true);
+            //printEntityState(0,entity,&r->layers[layer].entities[entity],firstPass,true);
             firstPass = false;
         }
          for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
             printf("Mapping: %d\r\n",mapping);
-            printMappingState(&r->layers[layer].mappings[mapping]);
+            //printMappingState(&r->layers[layer].mappings[mapping]);
         }
      }
 }
@@ -77,20 +77,20 @@ bool addMappingToRegionLayer(region *r, mapType type, bool *output, bool invertO
 }
 
 void processRegion(region *r) {
-    #define VERBOSE (false)
+    #define VERBOSE (true)
     static bool firstPass=true;
     static int time=0;
 
     int layer, entity, mapping;
     for (layer=0;layer<r->layerCount;layer++) {
+        for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
+            evaluateMapping(&r->layers[layer].mappings[mapping]);
+            //printMappingState(&r->layers[layer].mappings[mapping]);
+        }
         for (entity=0;entity<r->layers[layer].entityCount;entity++) {
             processEntity(&r->layers[layer].entities[entity]);
             printEntityState(time,entity,&r->layers[layer].entities[entity],firstPass,VERBOSE);
             firstPass = false;
-        }
-        for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
-            evaluateMapping(&r->layers[layer].mappings[mapping]);
-            //printMappingState(&r->layers[layer].mappings[mapping]);
         }
     }
     //printRegionState(r);

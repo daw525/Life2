@@ -47,7 +47,7 @@ Splint 3.1.1 --- 12 April 2003
 ../Source/mapping.c(32,9): Implicitly temp storage input assigned to implicitly
                               only: m->inputPorts[m->inputPortCount].p = input
 ../Source/world.c: (in function run)
-../Source/world.c(75,9): Unrecognized identifier: Sleep
+../Source/world.c(110,9): Unrecognized identifier: Sleep
   Identifier used in code has not been declared. (Use -unrecog to inhibit
   warning)
 ../Source/configure.c(6,12): Variable exported but not used outside configure:
@@ -70,7 +70,7 @@ Splint 3.1.1 --- 12 April 2003
 ../Source/configure.c(228,6): Function exported but not used outside configure:
                                  openFile
    ../Source/configure.c(256,1): Definition of openFile
-../Source/world.c(64,6): Function exported but not used outside world: tick
-   ../Source/world.c(66,1): Definition of tick
+../Source/world.c(100,6): Function exported but not used outside world: tick
+   ../Source/world.c(102,1): Definition of tick
 
 Finished checking --- 20 code warnings

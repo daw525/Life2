@@ -122,4 +122,5 @@ void printMappingState(mapping *m) {
     printf("evaluation: %d\r\n", (int)m->evaluation);
     printf("onThreshold: %d\r\n", m->onThreshold);
     printf("offThreshold: %d\r\n", m->offThreshold);
+    printf("Output: %d\r\n", (int)*m->outputPort.p);
 }

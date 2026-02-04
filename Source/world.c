@@ -43,25 +43,45 @@ bool initialiseRegions(void) {
     /* Region 0 */
     initaliseRegion(&regions[0]);
 
-    regions[0].inputCount = 2;
+    regions[0].inputCount = 1;
     regions[0].inputArray[0] = false;
-    regions[0].inputArray[1] = false;
 
     regions[0].outputCount = 1;
     regions[0].outputArray[0] = false;
 
+    /* Layer 1 */
     initalisationFailure = addLayerToRegion(&regions[0]);
     if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[0].entities[0].input,false);
+    /* Mapping 1 */
+    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[1].entities[0].input,false);
     if (initalisationFailure!=false) {return true;}
 
     initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].inputArray[0],false);
     if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].inputArray[1],false);
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[0].mappings[0],&regions[0].layers[1].entities[0].previousOutput,false);
     if (initalisationFailure!=false) {return true;}
 
+    /* Entity 1 */
+
+    initalisationFailure = addEntityToRegionLayer(&regions[0],5,5);
+    if (initalisationFailure!=false) {return true;}
+
+    /* Layer 2 */
+    initalisationFailure = addLayerToRegion(&regions[0]);
+    if (initalisationFailure!=false) {return true;}
+
+    /* Mapping */
+
+    initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[1].entities[0].input,false);
+    if (initalisationFailure!=false) {return true;}
+
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[1].mappings[0],&regions[0].layers[0].entities[0].previousOutput,false);
+    if (initalisationFailure!=false) {return true;}
+
+    /* Entity */
+    
     initalisationFailure = addEntityToRegionLayer(&regions[0],5,5);
     if (initalisationFailure!=false) {return true;}
 
@@ -70,7 +90,7 @@ bool initialiseRegions(void) {
 
 void updateRegions(void) {
     int r;
-    for (r=0;r<MAX_REGION;r++) {
+    for (r=0;r<1;r++) {
         processRegion(&regions[r]);
         //printRegionState(&regions[r]);
     }
@@ -85,12 +105,13 @@ void tick(void) {
 void run(void) {
     int i;
     regions[0].inputArray[0] = true;
-    regions[0].inputArray[1] = true;
     for(i=0;i<MAX_ITERATION;i++) {
         tick();
         Sleep(1);
+        /* Put input 1 true first pass only */
+        regions[0].inputArray[0] = false;
         /* Basic test case. Toggle inputs on on and even cycles */
-        if (i%1==0) {regions[0].inputArray[0]^=true;}
-        if (i%2==0) {regions[0].inputArray[1]^=true;}
+        //if (i%1==0) {regions[0].inputArray[0]^=true;}
+        //if (i%2==0) {regions[0].inputArray[1]^=true;}
     }
 }
