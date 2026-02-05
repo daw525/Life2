@@ -73,6 +73,14 @@ void processEntity(entity *e) {
             How fast is it changing... */
         e->trueWeight = (float)e->outputTimeTrue / e->error;
         e->falseWeight = (float)e->outputTimeFalse / e->error;
+        /*  Integration time is 1, 1 cycle with input false...
+            Error = 1...
+            outputTrueTime = 0
+            outputFalseTime = 1
+            trueWeight = 0/1 = 0
+            falseWeight = 1/1 = 1
+            This is incorrect..
+            We have only been false and had no reward, so weighting for true should be increasing... */
     } 
 
     e->output = e->trueWeight >= e->falseWeight;
