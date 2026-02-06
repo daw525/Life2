@@ -17,7 +17,7 @@ jobs:
        run: sudo apt-get install doxygen graphviz -y
      # Step 3: Generate Doxygen documentation
      - name: Generate Doxygen docs
-       run: doxygen Doxyfile
+       run: Documentation/doxygen Doxyfile
      # Step 4: Deploy to GitHub Pages
      - name: Deploy to GitHub Pages
        uses: JamesIves/github-pages-deploy-action@v4
