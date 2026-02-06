@@ -65,7 +65,7 @@ bool initialiseRegions(void) {
 
     /* Entity 1 */
 
-    initalisationFailure = addEntityToRegionLayer(&regions[0],1,1);
+    initalisationFailure = addEntityToRegionLayer(&regions[0],3,20);
     if (initalisationFailure!=false) {return true;}
 
     /* Layer 2 */
@@ -77,12 +77,12 @@ bool initialiseRegions(void) {
     initalisationFailure = addMappingToRegionLayer(&regions[0],OR,&regions[0].layers[1].entities[0].input,false);
     if (initalisationFailure!=false) {return true;}
 
-    initalisationFailure = addInputPortToMapping(&regions[0].layers[1].mappings[0],&regions[0].outputArray[0],false);
+    initalisationFailure = addInputPortToMapping(&regions[0].layers[1].mappings[0],&regions[0].layers[0].entities[0].output,false);
     if (initalisationFailure!=false) {return true;}
 
     /* Entity */
     
-    initalisationFailure = addEntityToRegionLayer(&regions[0],1,1);
+    initalisationFailure = addEntityToRegionLayer(&regions[0],3,20);
     if (initalisationFailure!=false) {return true;}
 
     return false;

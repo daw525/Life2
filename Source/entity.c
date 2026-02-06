@@ -19,11 +19,17 @@ void initialiseEntity(entity *e, int integrationTime, int flipTime) {
         e->trueWeight = 0;
         e->falseWeight = 0;
         e->FLIP_TIME = flipTime;
-        e->flipTime = 0; 
+        e->flipTime = 0;
+        e->firstPass = true;
 }
 
 void processEntity(entity *e) {
     int samplePointer, sampleCount;
+
+    if (e->firstPass) {
+        e->firstPass = false;
+        e->output = e->input;
+    }
 
     e->previousOutput = e->output;
 
@@ -80,7 +86,8 @@ void processEntity(entity *e) {
             trueWeight = 0/1 = 0
             falseWeight = 1/1 = 1
             This is incorrect..
-            We have only been false and had no reward, so weighting for true should be increasing... */
+            We have only been false and had no reward, so weighting for true should be increasing...
+            Swapping the test below to be true<false, instead of true>=false. This will flip the weighting*/
     } 
 
     e->output = e->trueWeight >= e->falseWeight;
@@ -119,6 +126,7 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
             printf("falseWeight\t");
             printf("FLIP_TIME\t");
             printf("flipTime\t");
+            printf("firstPass\t");
         }
 
         printf("\n");
@@ -141,6 +149,7 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
         printf("%f\t",e->falseWeight);
         printf("%d\t",e->FLIP_TIME);
         printf("%d\t",e->flipTime);
+        printf("%d\t",e->firstPass);
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {
             printf("Sample %i: %d\t",sample, (int)e->inputs[sample]);

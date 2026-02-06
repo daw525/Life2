@@ -20,7 +20,8 @@ typedef struct {
     float trueWeight;
     float falseWeight;
     int FLIP_TIME;
-    int flipTime;    
+    int flipTime;
+    bool firstPass; 
 } entity;
 
 void initialiseEntity(entity *e, int integrationTime, int flipTime);
