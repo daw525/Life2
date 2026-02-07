@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "_acdefgilmnoprtvwx",
-  1: "celmprw",
+  0: "_acdefgilmnoprstvwx",
+  1: "celmprtw",
   2: "cegmrw",
   3: "cempr",
-  4: "defilmnoprtw",
+  4: "defilmnoprstw",
   5: "cm",
   6: "aefilmnortx",
   7: "_mv"

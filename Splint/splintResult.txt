@@ -1,3 +1,20 @@
 Splint 3.1.1 --- 12 April 2003
 
-Finished checking --- no warnings
+../Source/world.c: (in function run)
+../Source/world.c(41,5): Immediate address &w.regions[0].layers[1].entities[0].o
+    utput assigned to implicitly only: w.regions[0].layers[0].mappings[0].inputP
+    orts[1].p = &w.regions[0].layers[1].entities[0].output
+  An immediate address (result of & operator) is transferred inconsistently.
+  (Use -immediatetrans to inhibit warning)
+../Source/world.c(47,9): Immediate address &testCases[].SET assigned to
+    implicitly only: w.regions[0].layers[0].mappings[0].inputPorts[0].p =
+    &testCases[iteration].SET
+../Source/world.c(48,9): Immediate address &testCases[].RESET assigned to
+    implicitly only: w.regions[0].layers[1].mappings[0].inputPorts[0].p =
+    &testCases[iteration].RESET
+../Source/world.c(24,10): Variable exported but not used outside world:
+                             testCases
+  A declaration is exported, but not used outside this module. Declaration can
+  use static qualifier. (Use -exportlocal to inhibit warning)
+
+Finished checking --- 4 code warnings

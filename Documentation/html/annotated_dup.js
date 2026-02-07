@@ -6,5 +6,6 @@ var annotated_dup =
     [ "mapping", "structmapping.html", "structmapping" ],
     [ "port", "structport.html", "structport" ],
     [ "region", "structregion.html", "structregion" ],
+    [ "testCase", "structtest_case.html", "structtest_case" ],
     [ "world", "structworld.html", "structworld" ]
 ];

@@ -11,6 +11,7 @@ void processRegion(region *r) {
     static int time=0;
 
     int layer, entity, mapping;
+    
     for (layer=0;layer<r->layerCount;layer++) {
         for (mapping=0;mapping<r->layers[layer].mappingCount;mapping++) {
             evaluateMapping(&r->layers[layer].mappings[mapping]);
@@ -18,7 +19,7 @@ void processRegion(region *r) {
         }
         for (entity=0;entity<r->layers[layer].entityCount;entity++) {
             processEntity(&r->layers[layer].entities[entity]);
-            printEntityState(time,entity,&r->layers[layer].entities[entity],firstPass,VERBOSE);
+            //printEntityState(time,entity,&r->layers[layer].entities[entity],firstPass,VERBOSE);
             firstPass = false;
         }
     }

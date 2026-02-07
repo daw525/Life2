@@ -1,5 +1,7 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,55,32"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,55,57"/>
 <area shape="rect" id="Node000002" href="$configure_8c.html#a9f19230e5e5f9b12894a58d596e578b3" title=" " alt="" coords="103,5,177,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,16,90,18,85,20,55,21"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,36,90,29,85,32,56,41"/>
+<area shape="rect" id="Node000003" href="$world_8c.html#a05e0ffe612d44e6d7f3a9ae5b9df56a2" title=" " alt="" coords="120,56,160,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="55,47,107,60,103,63,55,52"/>
 </map>

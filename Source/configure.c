@@ -181,7 +181,7 @@ static bool parseLine(char *line) {
 
                         case (REGION):
                             regionIndex = dataInt;
-                            w.regionCount = regionIndex;
+                            w.regionCount = regionIndex+1;
                             r = &w.regions[regionIndex];
 
                         break;
@@ -311,7 +311,7 @@ static bool parseLine(char *line) {
                                 layer = r->layerCount - 1;
                                 entity = r->layers[layer].entityCount - 1;
                                 r->layers[layer].entities[entity].FLIP_TIME = dataInt;
-                                printRegionState(r);
+                                //printRegionState(r);
                             } else {
                                 failure = true;
                             }

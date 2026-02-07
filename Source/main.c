@@ -15,7 +15,7 @@ int main(void) {
     if (initalisationFailed != false) {
         return EXIT_FAILURE;
     } else {
-        //run();
+        run();
         return EXIT_SUCCESS;
     }
 }

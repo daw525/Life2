@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['trueweight_0',['trueWeight',['../structentity.html#ab45965e6badb99e8e4d7204056402555',1,'entity']]],
-  ['type_1',['type',['../structmapping.html#a0d8b90f10486299443883ef490c2d264',1,'mapping']]]
+  ['set_0',['SET',['../structtest_case.html#a21129baa3c92bae02d46859a9f2102cd',1,'testCase']]]
 ];
