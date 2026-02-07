@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['input_0',['INPUT',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aae310c909d76b003d016bef8bdf16936a',1,'configure.c']]]
+  ['finished_0',['FINISHED',['../configure_8c.html#ab43ea726342d58a47d86f140cfe54deaadbd1812bee789fbf3548cf79d3f2b400',1,'configure.c']]],
+  ['flip_5ftime_1',['FLIP_TIME',['../configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa0a087eac34b01ec0e591809a352a5a58',1,'configure.c']]]
 ];

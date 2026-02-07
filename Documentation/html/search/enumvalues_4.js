@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mapping_0',['MAPPING',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa931c2f54425315717778a396e670ed80',1,'configure.c']]]
+  ['layer_0',['LAYER',['../configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa10f0c667cbe1b561b97fc1d4050d49e5',1,'configure.c']]]
 ];

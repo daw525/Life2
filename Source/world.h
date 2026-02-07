@@ -4,7 +4,6 @@
 #include "global.h"
 #include "region.h"
 
-bool initialiseRegions(void);
 void run(void);
 
 #define MAX_REGION  (1) 

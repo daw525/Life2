@@ -1,7 +1,5 @@
 <map id="printMappingState" name="printMappingState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="294,5,420,32"/>
-<area shape="rect" id="Node000002" href="$region_8c.html#a20e3e55892ae681d486a4aa16e0088de" title=" " alt="" coords="128,5,246,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,19,246,21,246,16,281,19"/>
-<area shape="rect" id="Node000003" href="$configure_8c.html#a9f19230e5e5f9b12894a58d596e578b3" title=" " alt="" coords="5,5,80,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,19,80,21,80,16,115,18"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="172,5,298,32"/>
+<area shape="rect" id="Node000002" href="$region_8c.html#a20e3e55892ae681d486a4aa16e0088de" title=" " alt="" coords="5,5,124,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,19,124,21,124,16,159,18"/>
 </map>

@@ -1,24 +1,7 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
-  ['mapping_2',['MAPPING',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa931c2f54425315717778a396e670ed80',1,'configure.c']]],
-  ['mapping_3',['mapping',['../structmapping.html',1,'']]],
-  ['mapping_2ec_4',['mapping.c',['../mapping_8c.html',1,'']]],
-  ['mapping_2eh_5',['mapping.h',['../mapping_8h.html',1,'']]],
-  ['mapping_5ftok_6',['MAPPING_TOK',['../configure_8c.html#a6fe2e83c29f2cd7884e600b6e3556f4d',1,'configure.c']]],
-  ['mappingcount_7',['mappingCount',['../structlayer.html#a8456c3da476801799f723bf379a72019',1,'layer']]],
-  ['mappings_8',['mappings',['../structlayer.html#a6ea19151565b3b7c76ebc36198bea855',1,'layer']]],
-  ['maptype_9',['mapType',['../mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429df',1,'mapping.h']]],
-  ['max_5fentity_10',['MAX_ENTITY',['../region_8h.html#ae2278b1dd3af4a0881d7dfb60f69daa5',1,'region.h']]],
-  ['max_5finput_11',['MAX_INPUT',['../region_8h.html#a00c1f0e7816626f58349492ef0720b5f',1,'region.h']]],
-  ['max_5finput_5fport_12',['MAX_INPUT_PORT',['../mapping_8h.html#a59ebdeae33abfa0a8b5fc514ce6b896c',1,'mapping.h']]],
-  ['max_5finput_5fto_5fworld_13',['MAX_INPUT_TO_WORLD',['../world_8c.html#a8ae0440355e3dbf0d1b96eb6b9ccbb1a',1,'world.c']]],
-  ['max_5fiteration_14',['MAX_ITERATION',['../world_8c.html#aefa7672f40a44cb9b17c8fb46210d1fd',1,'world.c']]],
-  ['max_5flayer_15',['MAX_LAYER',['../region_8h.html#a912d8a5fc768baa70d250f6d8f0cf751',1,'region.h']]],
-  ['max_5fmapping_16',['MAX_MAPPING',['../region_8h.html#ac1a51d22e7b2a91b3390755485276f76',1,'region.h']]],
-  ['max_5foutput_17',['MAX_OUTPUT',['../region_8h.html#a38afea15614bc71fe955c04b1a28a853',1,'region.h']]],
-  ['max_5foutput_5ffrom_5fworld_18',['MAX_OUTPUT_FROM_WORLD',['../world_8c.html#ad92d7bf0e51b75690ea1576a21018eea',1,'world.c']]],
-  ['max_5fregion_19',['MAX_REGION',['../world_8h.html#ae5ec1722888fa94f312ad1f5cf92238d',1,'world.h']]],
-  ['max_5fsample_20',['MAX_SAMPLE',['../entity_8h.html#a29cc2a2fe6d3f7142e197a54d6a91a85',1,'entity.h']]]
+  ['layer_0',['LAYER',['../configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa10f0c667cbe1b561b97fc1d4050d49e5',1,'configure.c']]],
+  ['layer_1',['layer',['../structlayer.html',1,'']]],
+  ['layercount_2',['layerCount',['../structregion.html#a3e69185f25b7b306dd5fca9ecaeab1ec',1,'region']]],
+  ['layers_3',['layers',['../structregion.html#a9b5a4ea02ed7d5749ee0de713f0c86ab',1,'region']]]
 ];

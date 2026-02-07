@@ -1,4 +1,0 @@
-./Source/region.c: In function 'printRegionState':
-./Source/region.c:5:17: warning: variable 'firstPass' set but not used [-Wunused-but-set-variable]
-    5 |     static bool firstPass = true;
-      |                 ^~~~~~~~~

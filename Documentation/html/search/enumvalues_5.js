@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['or_0',['OR',['../mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429dfa96727447c0ad447987df1c6415aef074',1,'mapping.h']]],
-  ['output_1',['OUTPUT',['../configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa2ab08d3e103968f5f4f26b66a52e99d6',1,'configure.c']]]
+  ['mapping_0',['MAPPING',['../configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa931c2f54425315717778a396e670ed80',1,'configure.c']]],
+  ['max_5fconfiguration_5fstate_1',['MAX_CONFIGURATION_STATE',['../configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaeb4087ff55b382429596a0884e8f383c',1,'configure.c']]]
 ];

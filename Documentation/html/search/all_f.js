@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['world_2ec_0',['world.c',['../world_8c.html',1,'']]],
-  ['world_2eh_1',['world.h',['../world_8h.html',1,'']]]
+  ['verbose_0',['VERBOSE',['../region_8c.html#a42f8c497a1968074f38bf5055c650dca',1,'region.c']]]
 ];

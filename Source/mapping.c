@@ -1,47 +1,10 @@
 #include "mapping.h"
 
-void initialiseMapping(mapping *m, mapType type, bool *output, bool invertOutput) {
-    int inputPort;
-    m->evaluation = false;
-    m->type = type;
-    m->outputPort.p = output;
-    m->outputPort.invert = invertOutput;
-    m->outputPort.enabled = true;
-    m->inputPortCount = 0;
-    /* Initialise all input ports to disabled */
-    for (inputPort=0;inputPort<MAX_INPUT_PORT;inputPort++) {
-        m->inputPorts[inputPort].p = NULL;
-        m->inputPorts[inputPort].invert = false;
-        m->inputPorts[inputPort].enabled = false;
-    }
-    m->offThreshold = 0;
-    m->onThreshold = 0;
-}
-
-/*!
- *
- *
- * @param
- * @return 0 = success; 1 = failure
- */
-
-bool addInputPortToMapping(mapping *m, bool *input, const bool invert) {
-    if (m->inputPortCount >=MAX_INPUT_PORT) {
-        return true;
-    } else {
-        m->inputPorts[m->inputPortCount].p = input;
-        m->inputPorts[m->inputPortCount].invert = invert;
-        m->inputPorts[m->inputPortCount].enabled = true;
-        m->inputPortCount++;
-        return false;
-    }
-}
-
-void setMappingThresholds(mapping *m, int onThresdhold, int offThreshold) {
-    m->onThreshold = onThresdhold;
-    m->offThreshold = offThreshold;
-}
-
+/*! 
+ * 
+ * @param 
+ * @return None
+ * */
 void evaluateMapping(mapping *m) {
     int inputPort;
     bool inputPortState;
@@ -113,14 +76,24 @@ void evaluateMapping(mapping *m) {
     *m->outputPort.p = m->evaluation; 
 }
 
+/*! 
+ * 
+ * @param 
+ * @return None
+ * */
 void printMappingState(mapping *m) {
     int i;
-    printf("inputPortCount: %d\r\n", m->inputPortCount);
+    printf("inputPortCount:\t%d\r\n", m->inputPortCount);
     for (i=0;i<m->inputPortCount;i++) {
-        printf("inputPorts[%i]: %d\r\n",i, (int)*m->inputPorts[i].p);
+        printf("inputPorts[%i].p:\t%d\r\n",i, (int)*m->inputPorts[i].p);
+        printf("inputPorts[%i].invert:\t%d\r\n",i, (int)m->inputPorts[i].invert);
+        printf("inputPorts[%i].enabled:\t%d\r\n",i, (int)m->inputPorts[i].enabled);
     }
-    printf("evaluation: %d\r\n", (int)m->evaluation);
-    printf("onThreshold: %d\r\n", m->onThreshold);
-    printf("offThreshold: %d\r\n", m->offThreshold);
-    printf("Output: %d\r\n", (int)*m->outputPort.p);
+    printf("type:\t%d\r\n", (int)m->type);
+    printf("evaluation:\t%d\r\n", (int)m->evaluation);
+    printf("onThreshold:\t%d\r\n", m->onThreshold);
+    printf("offThreshold:\t%d\r\n", m->offThreshold);
+    printf("Output.p:\t%d\r\n", (int)*m->outputPort.p);
+    printf("Output.invert:\t%d\r\n", (int)m->outputPort.invert);
+    printf("Output.enabled:\t%d\r\n", (int)m->outputPort.enabled);
 }

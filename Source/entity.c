@@ -1,28 +1,10 @@
 #include "entity.h"
 
-
-void initialiseEntity(entity *e, int integrationTime, int flipTime) {
-        int sample;
-        e->input = false;
-        e->output = false;
-        e->previousOutput = false;
-        for(sample=0;sample<MAX_SAMPLE;sample++) {
-            e->inputs[sample] = false;
-            e->outputs[sample] = false;
-        }
-        e->INTEGRATION_TIME = integrationTime;
-        e->inputTimeTrue = 0;
-        e->outputTimeTrue = 0;
-        e->outputTimeFalse = 0;
-        e->integrationTime = 0;
-        e->error = 0;
-        e->trueWeight = 0;
-        e->falseWeight = 0;
-        e->FLIP_TIME = flipTime;
-        e->flipTime = 0;
-        e->firstPass = true;
-}
-
+/*! 
+ * 
+ * @param 
+ * @return None
+ * */
 void processEntity(entity *e) {
     int samplePointer, sampleCount;
 
@@ -105,6 +87,11 @@ void processEntity(entity *e) {
     e->integrationTime++;
 }
 
+/*! 
+ * 
+ * @param 
+ * @return None
+ * */
 void printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose) {
     int sample;
 
@@ -149,7 +136,7 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
         printf("%f\t",e->falseWeight);
         printf("%d\t",e->FLIP_TIME);
         printf("%d\t",e->flipTime);
-        printf("%d\t",e->firstPass);
+        printf("%d\t",(int)e->firstPass);
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {
             printf("Sample %i: %d\t",sample, (int)e->inputs[sample]);

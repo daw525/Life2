@@ -118,58 +118,10 @@ Include dependency graph for mapping.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a97c0e65f473c54349971237828c72eb4" id="r_a97c0e65f473c54349971237828c72eb4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a97c0e65f473c54349971237828c72eb4">initialiseMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m, <a class="el" href="mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429df">mapType</a> type, bool *output, bool invertOutput)</td></tr>
-<tr class="memitem:a2d4463ca7963e02a274ba0d17f6f0f61" id="r_a2d4463ca7963e02a274ba0d17f6f0f61"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2d4463ca7963e02a274ba0d17f6f0f61">addInputPortToMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m, bool *input, const bool invert)</td></tr>
-<tr class="memitem:ad80315e986a923676ce11cdfc1351f4d" id="r_ad80315e986a923676ce11cdfc1351f4d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad80315e986a923676ce11cdfc1351f4d">setMappingThresholds</a> (<a class="el" href="structmapping.html">mapping</a> *m, int onThresdhold, int offThreshold)</td></tr>
 <tr class="memitem:abac91309ba7f20d6f1274f4a6eed9cc8" id="r_abac91309ba7f20d6f1274f4a6eed9cc8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abac91309ba7f20d6f1274f4a6eed9cc8">evaluateMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m)</td></tr>
 <tr class="memitem:a9622c53afd1f1c8cf5bcdeabadb386a8" id="r_a9622c53afd1f1c8cf5bcdeabadb386a8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9622c53afd1f1c8cf5bcdeabadb386a8">printMappingState</a> (<a class="el" href="structmapping.html">mapping</a> *m)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a2d4463ca7963e02a274ba0d17f6f0f61" name="a2d4463ca7963e02a274ba0d17f6f0f61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d4463ca7963e02a274ba0d17f6f0f61">&#9670;&#160;</a></span>addInputPortToMapping()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool addInputPortToMapping </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>invert</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>return 0 = success; 1 = failure </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="mapping_8c_a2d4463ca7963e02a274ba0d17f6f0f61_icgraph.png" border="0" usemap="#amapping_8c_a2d4463ca7963e02a274ba0d17f6f0f61_icgraph" loading="lazy" alt=""/></div>
-<map name="amapping_8c_a2d4463ca7963e02a274ba0d17f6f0f61_icgraph" id="amapping_8c_a2d4463ca7963e02a274ba0d17f6f0f61_icgraph">
-<area shape="rect" title=" " alt="" coords="267,5,425,32"/>
-<area shape="rect" href="world_8c.html#aeebfcd139fa49be8e858387da1738801" title=" " alt="" coords="103,5,219,32"/>
-<area shape="poly" title=" " alt="" coords="249,19,220,21,219,16,254,19"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="84,19,55,21,55,16,90,18"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="abac91309ba7f20d6f1274f4a6eed9cc8" name="abac91309ba7f20d6f1274f4a6eed9cc8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abac91309ba7f20d6f1274f4a6eed9cc8">&#9670;&#160;</a></span>evaluateMapping()</h2>
 
@@ -184,6 +136,13 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>return None </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -192,51 +151,6 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="162,5,281,32"/>
 <area shape="rect" href="region_8c.html#ace1ed43f53398a0110d6e882bdc913ec" title=" " alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="143,19,114,21,114,16,149,18"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a97c0e65f473c54349971237828c72eb4" name="a97c0e65f473c54349971237828c72eb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c0e65f473c54349971237828c72eb4">&#9670;&#160;</a></span>initialiseMapping()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initialiseMapping </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429df">mapType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>invertOutput</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="mapping_8c_a97c0e65f473c54349971237828c72eb4_icgraph.png" border="0" usemap="#amapping_8c_a97c0e65f473c54349971237828c72eb4_icgraph" loading="lazy" alt=""/></div>
-<map name="amapping_8c_a97c0e65f473c54349971237828c72eb4_icgraph" id="amapping_8c_a97c0e65f473c54349971237828c72eb4_icgraph">
-<area shape="rect" title=" " alt="" coords="493,5,611,32"/>
-<area shape="rect" href="region_8c.html#a3256869193af1d16adea4b4bcb852d32" title=" " alt="" coords="267,5,445,32"/>
-<area shape="poly" title=" " alt="" coords="475,19,446,21,446,16,480,19"/>
-<area shape="rect" href="world_8c.html#aeebfcd139fa49be8e858387da1738801" title=" " alt="" coords="103,5,219,32"/>
-<area shape="poly" title=" " alt="" coords="249,19,219,21,219,16,254,19"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="84,19,55,21,55,16,90,18"/>
 </map>
 </div>
 
@@ -256,32 +170,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>return None </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="mapping_8c_a9622c53afd1f1c8cf5bcdeabadb386a8_icgraph.png" border="0" usemap="#amapping_8c_a9622c53afd1f1c8cf5bcdeabadb386a8_icgraph" loading="lazy" alt=""/></div>
+<map name="amapping_8c_a9622c53afd1f1c8cf5bcdeabadb386a8_icgraph" id="amapping_8c_a9622c53afd1f1c8cf5bcdeabadb386a8_icgraph">
+<area shape="rect" title=" " alt="" coords="172,5,298,32"/>
+<area shape="rect" href="region_8c.html#a20e3e55892ae681d486a4aa16e0088de" title=" " alt="" coords="5,5,124,32"/>
+<area shape="poly" title=" " alt="" coords="153,19,124,21,124,16,159,18"/>
+</map>
 </div>
-</div>
-<a id="ad80315e986a923676ce11cdfc1351f4d" name="ad80315e986a923676ce11cdfc1351f4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad80315e986a923676ce11cdfc1351f4d">&#9670;&#160;</a></span>setMappingThresholds()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void setMappingThresholds </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>onThresdhold</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>offThreshold</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

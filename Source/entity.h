@@ -4,6 +4,7 @@
 #include "global.h"
 
 #define MAX_SAMPLE (10)
+#define MAX_FLIP_TIME   (10)
 
 typedef struct {
     bool input;
@@ -24,10 +25,7 @@ typedef struct {
     bool firstPass; 
 } entity;
 
-void initialiseEntity(entity *e, int integrationTime, int flipTime);
 void processEntity(entity *e);
 void printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose);
-
-
 
 #endif /*_ENTITY_H_*/

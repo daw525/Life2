@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['initaliseregion_0',['initaliseRegion',['../region_8c.html#aa8ae9ebaf458d24fca7c5c8aa03cc2a0',1,'initaliseRegion(region *r):&#160;region.c'],['../region_8h.html#aa8ae9ebaf458d24fca7c5c8aa03cc2a0',1,'initaliseRegion(region *r):&#160;region.c']]],
-  ['initialiseentity_1',['initialiseEntity',['../entity_8c.html#a2d73585e0408c790a35501ad952e033d',1,'initialiseEntity(entity *e, int integrationTime, int flipTime):&#160;entity.c'],['../entity_8h.html#a2d73585e0408c790a35501ad952e033d',1,'initialiseEntity(entity *e, int integrationTime, int flipTime):&#160;entity.c']]],
-  ['initialisemapping_2',['initialiseMapping',['../mapping_8c.html#a97c0e65f473c54349971237828c72eb4',1,'initialiseMapping(mapping *m, mapType type, bool *output, bool invertOutput):&#160;mapping.c'],['../mapping_8h.html#a97c0e65f473c54349971237828c72eb4',1,'initialiseMapping(mapping *m, mapType type, bool *output, bool invertOutput):&#160;mapping.c']]],
-  ['initialiseregions_3',['initialiseRegions',['../world_8c.html#aeebfcd139fa49be8e858387da1738801',1,'initialiseRegions(void):&#160;world.c'],['../world_8h.html#aeebfcd139fa49be8e858387da1738801',1,'initialiseRegions(void):&#160;world.c']]]
+  ['printentitystate_0',['printEntityState',['../entity_8c.html#aa401ccac4fd704838a54be7baef5d601',1,'printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose):&#160;entity.c'],['../entity_8h.html#aa401ccac4fd704838a54be7baef5d601',1,'printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose):&#160;entity.c']]],
+  ['printmappingstate_1',['printMappingState',['../mapping_8c.html#a9622c53afd1f1c8cf5bcdeabadb386a8',1,'printMappingState(mapping *m):&#160;mapping.c'],['../mapping_8h.html#a9622c53afd1f1c8cf5bcdeabadb386a8',1,'printMappingState(mapping *m):&#160;mapping.c']]],
+  ['printregionstate_2',['printRegionState',['../region_8c.html#a20e3e55892ae681d486a4aa16e0088de',1,'printRegionState(region *r):&#160;region.c'],['../region_8h.html#a20e3e55892ae681d486a4aa16e0088de',1,'printRegionState(region *r):&#160;region.c']]],
+  ['processentity_3',['processEntity',['../entity_8c.html#a1b31bae98a57882159bb308c9aafa344',1,'processEntity(entity *e):&#160;entity.c'],['../entity_8h.html#a1b31bae98a57882159bb308c9aafa344',1,'processEntity(entity *e):&#160;entity.c']]],
+  ['processregion_4',['processRegion',['../region_8c.html#ace1ed43f53398a0110d6e882bdc913ec',1,'processRegion(region *r):&#160;region.c'],['../region_8h.html#ace1ed43f53398a0110d6e882bdc913ec',1,'processRegion(region *r):&#160;region.c']]]
 ];

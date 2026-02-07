@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mapping_5ftok_0',['MAPPING_TOK',['../configure_8c.html#a6fe2e83c29f2cd7884e600b6e3556f4d',1,'configure.c']]],
-  ['mappingcount_1',['mappingCount',['../structlayer.html#a8456c3da476801799f723bf379a72019',1,'layer']]],
-  ['mappings_2',['mappings',['../structlayer.html#a6ea19151565b3b7c76ebc36198bea855',1,'layer']]]
+  ['layercount_0',['layerCount',['../structregion.html#a3e69185f25b7b306dd5fca9ecaeab1ec',1,'region']]],
+  ['layers_1',['layers',['../structregion.html#a9b5a4ea02ed7d5749ee0de713f0c86ab',1,'region']]]
 ];

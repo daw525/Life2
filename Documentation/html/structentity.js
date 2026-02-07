@@ -2,6 +2,7 @@ var structentity =
 [
     [ "error", "structentity.html#a11614f44ef4d939bdd984953346a7572", null ],
     [ "falseWeight", "structentity.html#ab8886bccd293c986cf8f76cb4875bbb0", null ],
+    [ "firstPass", "structentity.html#a206f6b5a1a298f734997d4e9baffa13e", null ],
     [ "FLIP_TIME", "structentity.html#af2a79c2d4eaeb3168cbb6d7652852b73", null ],
     [ "flipTime", "structentity.html#a2d80a1c1ab655202254fb5a11b839713", null ],
     [ "input", "structentity.html#a8ababadb8dc64acf8792317844e562ba", null ],

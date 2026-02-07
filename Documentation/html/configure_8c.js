@@ -1,20 +1,25 @@
 var configure_8c =
 [
-    [ "configurationFileState", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437a", [
-      [ "REGION", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa3bfda0bdc93e66e77b2242a9ce4cd804", null ],
-      [ "INPUT", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aae310c909d76b003d016bef8bdf16936a", null ],
-      [ "LAYER", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa10f0c667cbe1b561b97fc1d4050d49e5", null ],
-      [ "MAPPING", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa931c2f54425315717778a396e670ed80", null ],
-      [ "ENTITY", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa191ff161671f2d901b7e95db95bd7b8e", null ],
-      [ "OUTPUT", "configure_8c.html#a5faa3c6c7c321145ad43ddce09be437aa2ab08d3e103968f5f4f26b66a52e99d6", null ]
+    [ "configurationState", "structconfiguration_state.html", "structconfiguration_state" ],
+    [ "MAX_CHARACTER", "configure_8c.html#a4c91fbfef0473c70a4a109eeaa84e154", null ],
+    [ "MAX_TOKEN_LENGTH", "configure_8c.html#a6ba86e8818f2fd7667971e2872dc24b0", null ],
+    [ "configurationStateEnum", "configure_8c.html#ab43ea726342d58a47d86f140cfe54dea", [
+      [ "NOT_STARTED", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaae7d82dfe80ea0bd4feea8ee49ea2eab5", null ],
+      [ "REGION", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa3bfda0bdc93e66e77b2242a9ce4cd804", null ],
+      [ "LAYER", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa10f0c667cbe1b561b97fc1d4050d49e5", null ],
+      [ "MAPPING", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa931c2f54425315717778a396e670ed80", null ],
+      [ "INPUT", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaae310c909d76b003d016bef8bdf16936a", null ],
+      [ "INPUT_FROM_LAYER", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaecc342d19198dd36b130ef0f68b50433", null ],
+      [ "INPUT_FROM_ENTITY", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaae17023e6713cfaced2084a853d5d9baf", null ],
+      [ "INPUT_INVERT", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaf963e52d329c61355162d557c2031c7d", null ],
+      [ "TYPE", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaab47ea8bb955afd0adc0ef98517dd6084", null ],
+      [ "OUTPUT_TO_ENTITY", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaafaafd0862fa7d8c67a1bed80f65af507", null ],
+      [ "OUTPUT_INVERT", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaacf14c7efefbd888495849af401e3e166", null ],
+      [ "ENTITY", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa191ff161671f2d901b7e95db95bd7b8e", null ],
+      [ "INTEGRATION_TIME", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaf2ec36659a658f24e2226d3a73cdcaa3", null ],
+      [ "FLIP_TIME", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa0a087eac34b01ec0e591809a352a5a58", null ],
+      [ "FINISHED", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaadbd1812bee789fbf3548cf79d3f2b400", null ],
+      [ "MAX_CONFIGURATION_STATE", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaeb4087ff55b382429596a0884e8f383c", null ]
     ] ],
-    [ "configure", "configure_8c.html#a9f19230e5e5f9b12894a58d596e578b3", null ],
-    [ "openFile", "configure_8c.html#a71dbb99ec6b9c7a8a5466513ee45377d", null ],
-    [ "parseLine", "configure_8c.html#a3cf9c3d69566da225a4197177268922d", null ],
-    [ "ENTITY_TOK", "configure_8c.html#a8879d86c09b669ce1bd4f11f2d3fcec4", null ],
-    [ "INPUT_TOK", "configure_8c.html#a10d40f53b887f86cbe6ee8de88f238ad", null ],
-    [ "LAYER_TOK", "configure_8c.html#a42080855a40ee9b0bafc83e2223e1744", null ],
-    [ "MAPPING_TOK", "configure_8c.html#a6fe2e83c29f2cd7884e600b6e3556f4d", null ],
-    [ "OUTPUT_TOK", "configure_8c.html#aac0ee3506867a1b42cb6035c7507cac6", null ],
-    [ "REGION_TOK", "configure_8c.html#a3f7bf25ac89d24232f2ab1411ada3b25", null ]
+    [ "configure", "configure_8c.html#a9f19230e5e5f9b12894a58d596e578b3", null ]
 ];

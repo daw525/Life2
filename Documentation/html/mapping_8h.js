@@ -9,9 +9,6 @@ var mapping_8h =
       [ "XOR", "mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429dfac62338ffb5de22369c75caa565b5da1a", null ],
       [ "THRESHOLD", "mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429dfa4b8d6cea1ac561b0b7bb443d586aae42", null ]
     ] ],
-    [ "addInputPortToMapping", "mapping_8h.html#a7b175fab9da716873fcaf109c7407635", null ],
     [ "evaluateMapping", "mapping_8h.html#abac91309ba7f20d6f1274f4a6eed9cc8", null ],
-    [ "initialiseMapping", "mapping_8h.html#a97c0e65f473c54349971237828c72eb4", null ],
-    [ "printMappingState", "mapping_8h.html#a9622c53afd1f1c8cf5bcdeabadb386a8", null ],
-    [ "setMappingThresholds", "mapping_8h.html#ad80315e986a923676ce11cdfc1351f4d", null ]
+    [ "printMappingState", "mapping_8h.html#a9622c53afd1f1c8cf5bcdeabadb386a8", null ]
 ];

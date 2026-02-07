@@ -10,9 +10,8 @@
 int main(void) {
     bool initalisationFailed;
 
-    //return configure("configuration.csv");
-    
-    initalisationFailed = initialiseRegions();
+    initalisationFailed = configure("configuration.csv");
+
     if (initalisationFailed != false) {
         return EXIT_FAILURE;
     } else {
