@@ -10,7 +10,8 @@ typedef enum {
     AND,
     OR,
     XOR,
-    THRESHOLD
+    THRESHOLD,
+    MAX_MAP_TYPE
 } mapType;
 
 typedef struct {

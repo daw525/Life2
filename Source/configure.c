@@ -48,6 +48,9 @@ typedef struct {
     configurationStateEnum nextStates[MAX_CONFIGURATION_STATE];
 } configurationState;
 
+/* Check is for >= lowerLimit; < upperLimit.
+    For upperLimit, this works with MAX_xxx.
+    Boolean is an unique case, as 1 is valid, so upper limit needs to be 2. */
 static configurationState configurationStates[MAX_CONFIGURATION_STATE] = {
 /* dataLowerLimit   dataUpperLimit  nextStates  */
     {0,             0,              {REGION,MAX_CONFIGURATION_STATE}},
@@ -57,10 +60,10 @@ static configurationState configurationStates[MAX_CONFIGURATION_STATE] = {
     {0,             MAX_INPUT_PORT, {INPUT_FROM_LAYER,MAX_CONFIGURATION_STATE}},
     {0,             MAX_LAYER,      {INPUT_FROM_ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {INPUT_INVERT,MAX_CONFIGURATION_STATE}},
-    {0,             1,              {INPUT,TYPE,MAX_CONFIGURATION_STATE}},
-    {AND,           THRESHOLD,      {OUTPUT_TO_ENTITY,MAX_CONFIGURATION_STATE}},
+    {0,             2,              {INPUT,TYPE,MAX_CONFIGURATION_STATE}},
+    {AND,           MAX_MAP_TYPE,   {OUTPUT_TO_ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {OUTPUT_INVERT,MAX_CONFIGURATION_STATE}},
-    {0,             1,              {ENTITY,MAX_CONFIGURATION_STATE}},
+    {0,             2,              {ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {INTEGRATION_TIME,MAX_CONFIGURATION_STATE}},
     {0,             MAX_SAMPLE,     {FLIP_TIME,MAX_CONFIGURATION_STATE}},
     {0,             MAX_FLIP_TIME,  {ENTITY,LAYER,REGION,FINISHED,MAX_CONFIGURATION_STATE}}
@@ -165,7 +168,7 @@ static bool parseLine(char *line) {
             nextState = configurationStates[previousState].nextStates[nextStateArrayIterator];
             failure = convertStringToInt(dataStr, &dataInt);
             if (failure == false) {
-                if ( (dataInt >= configurationStates[nextState].dataLowerLimit) && (dataInt <= configurationStates[nextState].dataUpperLimit ) ){
+                if ( (dataInt >= configurationStates[nextState].dataLowerLimit) && (dataInt < configurationStates[nextState].dataUpperLimit ) ){
                     /* Token found and data in range */
                     //printf("%s\t%i\r\n",line,dataInt);
                     /* initialise structure and move on to next state */
@@ -178,7 +181,8 @@ static bool parseLine(char *line) {
 
                         case (REGION):
                             regionIndex = dataInt;
-                            r = &regions[regionIndex];
+                            w.regionCount = regionIndex;
+                            r = &w.regions[regionIndex];
 
                         break;
 

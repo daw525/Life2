@@ -5,7 +5,7 @@
 
 #define MAX_ITERATION   (15)
 
-region regions[MAX_REGION];
+world w;
 
 #define MAX_INPUT_TO_WORLD (2)
 bool inputs[MAX_INPUT];
@@ -46,9 +46,14 @@ static void tick(void) {
  * @return None
  * */
 static void updateRegions(void) {
-    int r;
-    /* Only one region for now...*/
-    for (r=0;r<1;r++) {
-        processRegion(&regions[r]);
+    int regionIterator;
+    region *r;
+    for (regionIterator=0; regionIterator < w.regionCount; regionIterator++) {
+        r = &w.regions[regionIterator];
+        if (r != NULL) {
+            processRegion(r);
+        } else {
+            printf("Null region encountered\r\n");
+        }
     }
 }

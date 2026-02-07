@@ -1,0 +1,13 @@
+<map id="world" name="world">
+<area shape="rect" id="Node000001" title=" " alt="" coords="46,421,98,448"/>
+<area shape="rect" id="Node000002" href="$structregion.html" title=" " alt="" coords="44,323,100,349"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,364,75,422,69,420,70,367"/>
+<area shape="rect" id="Node000003" href="$structlayer.html" title=" " alt="" coords="47,224,97,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,264,75,323,69,322,71,269"/>
+<area shape="rect" id="Node000004" href="$structentity.html" title=" " alt="" coords="5,125,59,152"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="29,165,38,199,57,223,52,224,33,201,29,170"/>
+<area shape="rect" id="Node000005" href="$structmapping.html" title=" " alt="" coords="82,125,152,152"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="104,169,80,225,75,223,106,164"/>
+<area shape="rect" id="Node000006" href="$structport.html" title=" " alt="" coords="96,5,139,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="118,45,120,125,115,125,117,50"/>
+</map>

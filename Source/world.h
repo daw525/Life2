@@ -4,9 +4,15 @@
 #include "global.h"
 #include "region.h"
 
-void run(void);
+#define MAX_REGION  (2)
 
-#define MAX_REGION  (1) 
-extern region regions[MAX_REGION];
+typedef struct {
+    int regionCount;
+    region regions[MAX_REGION];
+} world;
+
+extern world w;
+
+void run(void);
 
 #endif /* _WORLD_H_*/

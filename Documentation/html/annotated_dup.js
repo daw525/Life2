@@ -5,5 +5,6 @@ var annotated_dup =
     [ "layer", "structlayer.html", "structlayer" ],
     [ "mapping", "structmapping.html", "structmapping" ],
     [ "port", "structport.html", "structport" ],
-    [ "region", "structregion.html", "structregion" ]
+    [ "region", "structregion.html", "structregion" ],
+    [ "world", "structworld.html", "structworld" ]
 ];
