@@ -3,7 +3,7 @@
 #include "entity.h"
 #include "mapping.h"
 
-#define MAX_ITERATION   (5)
+#define MAX_ITERATION   (8)
 
 world w;
 
@@ -23,9 +23,12 @@ typedef struct {
 
 testCase testCases[MAX_ITERATION] = {   {true, false},
                                         {true, false},
+                                        {true, false},
+                                        {false, false},
                                         {false, false},
                                         {false, true},
-                                        {false, false}};
+                                        {false, true},
+                                        {false, false} };
 
 /*! 
  * 
@@ -38,7 +41,7 @@ void run(void) {
     /* Re-map to region inputs and outputs */
     /* L0,E0 has SET input and feedback from L1,E0 entity to produce a latch (mapping is OR gate) */
     //w.regions[0].layers[0].mappings[0].inputPorts[0].p = &inputs[0];
-    w.regions[0].layers[0].mappings[0].inputPorts[1].p = &w.regions[0].layers[1].entities[0].output;
+    //w.regions[0].layers[0].mappings[0].inputPorts[1].p = &w.regions[0].layers[1].entities[0].previousOutput;
 
     /* L1,E0 has RESET input and output taken from L0,E1 (mapping is AND gate with RESET input inverted)*/
     /* This makes SR Latch */
@@ -47,16 +50,16 @@ void run(void) {
         w.regions[0].layers[0].mappings[0].inputPorts[0].p = &testCases[iteration].SET;
         w.regions[0].layers[1].mappings[0].inputPorts[0].p = &testCases[iteration].RESET;
 
-        //printf("Iteration: %i\n",iteration);
+        printf("--- Iteration: %i ---\n",iteration);
         printf("SET: %d\n",(int)*w.regions[0].layers[0].mappings[0].inputPorts[0].p);
         printf("CLEAR: %d\n",(int)*w.regions[0].layers[1].mappings[0].inputPorts[0].p);
         tick();
+        printf("Output: %d\n",(int)w.regions[0].layers[1].entities[0].output);
         //printMappingState(&w.regions[0].layers[0].mappings[0]);
-        //printf("\r\n");
         //printMappingState(&w.regions[0].layers[1].mappings[0]);
         //printEntityState(iteration,0,&w.regions[0].layers[0].entities[0],false,true);
         //printEntityState(iteration,1,&w.regions[0].layers[1].entities[0],false,true);
-        printf("Output: %d\n",(int)w.regions[0].layers[1].entities[0].output);
+        printf("\r\n");
         /*@-unrecog@*/
         Sleep(1);
     }

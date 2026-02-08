@@ -342,32 +342,73 @@ static bool parseLine(char *line) {
 }
 
 /*! 
+ * @brief Converts decimal number in an ASCII string to integer.
+ *
+ * Maximum number of ASCII characters is 3, so maximum integer value returned is 999.
+ * Minimum integer value returned is 0.
  * 
- * @param 
+ * If conversion fails, function returns true (failure) and returnValue is not changed.
+ * Errors detected are:
+ * 1. Null string.
+ * 2. String is longer that MAX_CHARACTER.
+ * 3. Non-decimal ASCII character detected.
+ *
+ * @param pointer to ASCII string representation of a decimal number
+ * @param pointer to integer where the number will be returned
  * @return boolean failure indication (true = failure, false = success) 
  * */
 static bool convertStringToInt(char *stringInt, int *returnValue) {
-    #define MAX_CHARACTER (3) /* Currently no need to support data values bigger than 999 */
+    /* Currently no need to support data values bigger than 999 */
+    #define MAX_CHARACTER (3)
     const int powersOfTen[MAX_CHARACTER] = {1,10,100};
     bool failure = false;
-    int characterCount = 0;
+    char *currentCharacter;
+    int lookup;
 
-    while ( (*stringInt != '\0') && (failure == false) && (characterCount < MAX_CHARACTER) ) {
-        if ( (*stringInt < '0') || (*stringInt >  '9') ) {
+    currentCharacter = stringInt;
+
+    if (*currentCharacter == '\0') {
+            /* Null string */
+            failure = true;
+    }
+
+    while ( (*currentCharacter != '\0') && (failure == false) ) {
+        if (currentCharacter - stringInt >= MAX_CHARACTER) {
+            /* String is too long */
+            failure = true;
+        } else if ( (*currentCharacter < '0') || (*currentCharacter >  '9') ) {
+            /* Not a decimal number */
             failure = true;
         } else {
-            *stringInt = *stringInt - (char)0x30; /* Convert ascii to decimal */
-            characterCount++;
-            stringInt++;
+            /* All good to convert current character from ascii to decimal */
+            *currentCharacter = *currentCharacter - (char)0x30;
         }
+        currentCharacter++;
     }
+
     if (failure == false) {
-        stringInt = stringInt-1;
+        /* currentCharacter was incremented after each character, so it is one ahead of the final character */
+        currentCharacter = currentCharacter - 1;
         *returnValue = 0;
-        while (characterCount > 0) {
-            *returnValue = *returnValue + ((int)*stringInt * powersOfTen[characterCount-1]);
-            stringInt--;
-            characterCount--;
+
+        /* Process string starting with left most character moving towards right most.
+            String format: ABC
+            3 character string, order is A then B then C (in this case A needs to be *100)
+            2 character string, order is A then B (in this case A needs to be *10)
+            1 character string, order is A (in this case A needs to be *1)
+
+            The distance between stringInt (start pointer) and currentCharacter (end pointer) closes up as each character is processed.
+            3 character string, distance is 2, then 1, then 0
+            2 character string, distance is 1, then 0
+            1 character string, distance is 0
+            
+            Distance is used to lookup power of ten to multiply by.
+        */
+
+        while (stringInt <= currentCharacter) {
+            lookup = currentCharacter - stringInt;
+            *returnValue = *returnValue + ((int)*stringInt * powersOfTen[lookup]);
+            stringInt++;
         }
     }
     return failure;

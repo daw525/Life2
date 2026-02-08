@@ -5,5 +5,4 @@
 
 bool configure(char* configurationFile);
 
-
 #endif /*_CONFIGURE_H_*/

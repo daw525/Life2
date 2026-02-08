@@ -4,7 +4,7 @@
 #include "global.h"
 
 #define MAX_SAMPLE (10)
-#define MAX_FLIP_TIME   (10)
+#define MAX_FLIP_TIME   (20)
 
 typedef struct {
     bool input;
