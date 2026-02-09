@@ -9,9 +9,5 @@ Splint 3.1.1 --- 12 April 2003
 ../Source/world.c(51,9): Immediate address &testCases[].RESET assigned to
     implicitly only: w.regions[0].layers[1].mappings[0].inputPorts[0].p =
     &testCases[iteration].RESET
-../Source/world.c(24,10): Variable exported but not used outside world:
-                             testCases
-  A declaration is exported, but not used outside this module. Declaration can
-  use static qualifier. (Use -exportlocal to inhibit warning)
 
-Finished checking --- 3 code warnings
+Finished checking --- 2 code warnings

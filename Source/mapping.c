@@ -9,17 +9,10 @@ void evaluateMapping(mapping *m) {
     int inputPort;
     bool inputPortState;
     int count=0;
-
-    if (m->type == AND) {
-        /* For an AND gate it needs to be initialised to TRUE */
-        m->evaluation = true;
-    } else if (m->type == THRESHOLD) {
-        /* Leave in current state for hysterisis */
-        m->evaluation = m->evaluation;
-    } else {
-        m->evaluation = false;
-    }
-
+    bool andGateIsPossible = false;
+     
+    m->evaluation = false;
+    
     for(inputPort=0;inputPort<m->inputPortCount;inputPort++) {
 
         if (m->inputPorts[inputPort].enabled) {
@@ -32,6 +25,13 @@ void evaluateMapping(mapping *m) {
 
             switch(m->type) {
                 case AND: {
+                    if (andGateIsPossible == false) {
+                        /*  For AND gate, evaluation must be initialised to true.
+                            This should only be done if atleast one input port is enabled
+                            to prevent outputting true when there is no input. */
+                        andGateIsPossible = true;
+                        m->evaluation = true;
+                    }
                     m->evaluation = m->evaluation & inputPortState;
                     break;
                 }
@@ -73,7 +73,10 @@ void evaluateMapping(mapping *m) {
     if(m->outputPort.invert) {
         m->evaluation = !m->evaluation;
     }
-    *m->outputPort.p = m->evaluation; 
+    
+    if (m->outputPort.enabled==true) {
+        *m->outputPort.p = m->evaluation;
+    }
 }
 
 /*! 

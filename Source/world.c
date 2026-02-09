@@ -21,7 +21,7 @@ typedef struct {
     bool RESET;
 } testCase;
 
-testCase testCases[MAX_ITERATION] = {   {true, false},
+static testCase testCases[MAX_ITERATION] = {   {true, false},
                                         {true, false},
                                         {true, false},
                                         {false, false},
