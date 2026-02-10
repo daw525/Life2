@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['configure_0',['configure',['../configure_8c.html#a9f19230e5e5f9b12894a58d596e578b3',1,'configure(char *configurationFile):&#160;configure.c'],['../configure_8h.html#a9f19230e5e5f9b12894a58d596e578b3',1,'configure(char *configurationFile):&#160;configure.c']]]
+  ['addporttomapping_0',['addPortToMapping',['../mapping_8c.html#ad893ed6f0306f61f7121502164fcd43e',1,'addPortToMapping(mapping *m, const port *p, const bool inputPort):&#160;mapping.c'],['../mapping_8h.html#ad893ed6f0306f61f7121502164fcd43e',1,'addPortToMapping(mapping *m, const port *p, const bool inputPort):&#160;mapping.c']]]
 ];

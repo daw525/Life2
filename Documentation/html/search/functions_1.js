@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['evaluatemapping_0',['evaluateMapping',['../mapping_8c.html#abac91309ba7f20d6f1274f4a6eed9cc8',1,'evaluateMapping(mapping *m):&#160;mapping.c'],['../mapping_8h.html#abac91309ba7f20d6f1274f4a6eed9cc8',1,'evaluateMapping(mapping *m):&#160;mapping.c']]]
+  ['configure_0',['configure',['../configure_8c.html#a9f19230e5e5f9b12894a58d596e578b3',1,'configure(char *configurationFile):&#160;configure.c'],['../configure_8h.html#a9f19230e5e5f9b12894a58d596e578b3',1,'configure(char *configurationFile):&#160;configure.c']]]
 ];

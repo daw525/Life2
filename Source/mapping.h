@@ -7,9 +7,6 @@
 #define MAX_INPUT_PORT    (5)
 
 typedef enum {
-    AND,
-    OR,
-    XOR,
     THRESHOLD,
     MAX_MAP_TYPE
 } mapType;
@@ -17,7 +14,6 @@ typedef enum {
 typedef struct {
     bool *p;
     bool invert;
-    bool enabled;
 } port;
 
 typedef struct {
@@ -26,11 +22,16 @@ typedef struct {
     port outputPort;
     mapType type;
     bool evaluation;
+    int count;
     int onThreshold;
     int offThreshold;
 } mapping;
 
-void evaluateMapping(mapping *m);
+bool initialisePort(port *p, bool *b, const bool invert);
+bool initialiseMapping(mapping *m, const mapType t);
+bool addPortToMapping(mapping *m, const port *p, const bool inputPort);
+bool setMappingThresholds(mapping *m, const int onThreshold, const int offThreshold);
+bool evaluateMapping(mapping *m);
 void printMappingState(mapping *m);
 
 #endif /* _MAPPING_H_ */

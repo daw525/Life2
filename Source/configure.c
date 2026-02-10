@@ -61,7 +61,7 @@ static configurationState configurationStates[MAX_CONFIGURATION_STATE] = {
     {0,             MAX_LAYER,      {INPUT_FROM_ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {INPUT_INVERT,MAX_CONFIGURATION_STATE}},
     {0,             2,              {INPUT,TYPE,MAX_CONFIGURATION_STATE}},
-    {AND,           MAX_MAP_TYPE,   {OUTPUT_TO_ENTITY,MAX_CONFIGURATION_STATE}},
+    {THRESHOLD,     MAX_MAP_TYPE,   {OUTPUT_TO_ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {OUTPUT_INVERT,MAX_CONFIGURATION_STATE}},
     {0,             2,              {ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {INTEGRATION_TIME,MAX_CONFIGURATION_STATE}},
@@ -246,7 +246,6 @@ static bool parseLine(char *line) {
                                 mapping = r->layers[layer].mappingCount - 1;
                                 inputPort = r->layers[layer].mappings[mapping].inputPortCount - 1;
                                 r->layers[layer].mappings[mapping].inputPorts[inputPort].invert = (bool)dataInt;
-                                r->layers[layer].mappings[mapping].inputPorts[inputPort].enabled = true;
                             } else {
                                 failure = true;
                             }
@@ -279,7 +278,6 @@ static bool parseLine(char *line) {
                                 layer = r->layerCount - 1;
                                 mapping = r->layers[layer].mappingCount - 1;
                                 r->layers[layer].mappings[mapping].outputPort.invert = (bool)dataInt;
-                                r->layers[layer].mappings[mapping].outputPort.enabled = true;
                             } else {
                                 failure = true;
                             }

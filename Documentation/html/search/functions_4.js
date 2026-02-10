@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run_0',['run',['../world_8c.html#a05e0ffe612d44e6d7f3a9ae5b9df56a2',1,'run(void):&#160;world.c'],['../world_8h.html#a05e0ffe612d44e6d7f3a9ae5b9df56a2',1,'run(void):&#160;world.c']]]
+  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]]
 ];

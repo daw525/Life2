@@ -118,18 +118,55 @@ Include dependency graph for mapping.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abac91309ba7f20d6f1274f4a6eed9cc8" id="r_abac91309ba7f20d6f1274f4a6eed9cc8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abac91309ba7f20d6f1274f4a6eed9cc8">evaluateMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m)</td></tr>
+<tr class="memitem:ade75b053b14011cb56f52f0d59f7d949" id="r_ade75b053b14011cb56f52f0d59f7d949"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ade75b053b14011cb56f52f0d59f7d949">initialisePort</a> (<a class="el" href="structport.html">port</a> *p, bool *b, const bool invert)</td></tr>
+<tr class="memitem:a84e53a65e6c88048a033b2010eb52170" id="r_a84e53a65e6c88048a033b2010eb52170"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a84e53a65e6c88048a033b2010eb52170">initialiseMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m, const <a class="el" href="mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429df">mapType</a> t)</td></tr>
+<tr class="memitem:ad893ed6f0306f61f7121502164fcd43e" id="r_ad893ed6f0306f61f7121502164fcd43e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad893ed6f0306f61f7121502164fcd43e">addPortToMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m, const <a class="el" href="structport.html">port</a> *p, const bool inputPort)</td></tr>
+<tr class="memitem:afa827b81efe7c533f2b7d38631a51915" id="r_afa827b81efe7c533f2b7d38631a51915"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa827b81efe7c533f2b7d38631a51915">setMappingThresholds</a> (<a class="el" href="structmapping.html">mapping</a> *m, const int onThreshold, const int offThreshold)</td></tr>
+<tr class="memitem:a34c01723b7f5b247027713d8fdaf00e1" id="r_a34c01723b7f5b247027713d8fdaf00e1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a34c01723b7f5b247027713d8fdaf00e1">evaluateMapping</a> (<a class="el" href="structmapping.html">mapping</a> *m)</td></tr>
 <tr class="memitem:a9622c53afd1f1c8cf5bcdeabadb386a8" id="r_a9622c53afd1f1c8cf5bcdeabadb386a8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9622c53afd1f1c8cf5bcdeabadb386a8">printMappingState</a> (<a class="el" href="structmapping.html">mapping</a> *m)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="abac91309ba7f20d6f1274f4a6eed9cc8" name="abac91309ba7f20d6f1274f4a6eed9cc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abac91309ba7f20d6f1274f4a6eed9cc8">&#9670;&#160;</a></span>evaluateMapping()</h2>
+<a id="ad893ed6f0306f61f7121502164fcd43e" name="ad893ed6f0306f61f7121502164fcd43e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad893ed6f0306f61f7121502164fcd43e">&#9670;&#160;</a></span>addPortToMapping()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void evaluateMapping </td>
+          <td class="memname">bool addPortToMapping </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structport.html">port</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>inputPort</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>return boolean failure indication (true = failure, false = success) </p>
+
+</div>
+</div>
+<a id="a34c01723b7f5b247027713d8fdaf00e1" name="a34c01723b7f5b247027713d8fdaf00e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34c01723b7f5b247027713d8fdaf00e1">&#9670;&#160;</a></span>evaluateMapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool evaluateMapping </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span></td><td>)</td>
           <td></td>
@@ -142,17 +179,71 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>return None </p>
+<p>return boolean failure indication (true = failure, false = success) </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="mapping_8c_abac91309ba7f20d6f1274f4a6eed9cc8_icgraph.png" border="0" usemap="#amapping_8c_abac91309ba7f20d6f1274f4a6eed9cc8_icgraph" loading="lazy" alt=""/></div>
-<map name="amapping_8c_abac91309ba7f20d6f1274f4a6eed9cc8_icgraph" id="amapping_8c_abac91309ba7f20d6f1274f4a6eed9cc8_icgraph">
+<div class="center"><img src="mapping_8c_a34c01723b7f5b247027713d8fdaf00e1_icgraph.png" border="0" usemap="#amapping_8c_a34c01723b7f5b247027713d8fdaf00e1_icgraph" loading="lazy" alt=""/></div>
+<map name="amapping_8c_a34c01723b7f5b247027713d8fdaf00e1_icgraph" id="amapping_8c_a34c01723b7f5b247027713d8fdaf00e1_icgraph">
 <area shape="rect" title=" " alt="" coords="162,5,281,32"/>
 <area shape="rect" href="region_8c.html#ace1ed43f53398a0110d6e882bdc913ec" title=" " alt="" coords="5,5,114,32"/>
 <area shape="poly" title=" " alt="" coords="143,19,114,21,114,16,149,18"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a84e53a65e6c88048a033b2010eb52170" name="a84e53a65e6c88048a033b2010eb52170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e53a65e6c88048a033b2010eb52170">&#9670;&#160;</a></span>initialiseMapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool initialiseMapping </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="mapping_8h.html#a8594b8e4eb0e3306cdc6c9b2d15429df">mapType</a></td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade75b053b14011cb56f52f0d59f7d949" name="ade75b053b14011cb56f52f0d59f7d949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade75b053b14011cb56f52f0d59f7d949">&#9670;&#160;</a></span>initialisePort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool initialisePort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structport.html">port</a> *</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>invert</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>return boolean failure indication (true = failure, false = success) </p>
 
 </div>
 </div>
@@ -187,6 +278,39 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="153,19,124,21,124,16,159,18"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="afa827b81efe7c533f2b7d38631a51915" name="afa827b81efe7c533f2b7d38631a51915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa827b81efe7c533f2b7d38631a51915">&#9670;&#160;</a></span>setMappingThresholds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool setMappingThresholds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmapping.html">mapping</a> *</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>onThreshold</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>offThreshold</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>return boolean failure indication (true = failure, false = success) </p>
 
 </div>
 </div>
