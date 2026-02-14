@@ -1,13 +1,3 @@
-./Source/mapping.c: In function 'evaluateMapping':
-./Source/mapping.c:108:60: warning: suggest parentheses around comparison in operand of '|' [-Wparentheses]
-  108 |             failure = failure | m->inputPorts[inputPort].p == NULL;
-      |                                                            ^
-./Source/mapping.c:111:45: warning: suggest parentheses around comparison in operand of '|' [-Wparentheses]
-  111 |         failure = failure | m->outputPort.p == NULL;
-      |                                             ^
-./Source/mapping.c:100:9: warning: variable 'result' set but not used [-Wunused-but-set-variable]
-  100 |     int result=0;
-      |         ^~~~~~
 ./Source/region.c: In function 'processRegion':
 ./Source/region.c:10:17: warning: variable 'firstPass' set but not used [-Wunused-but-set-variable]
    10 |     static bool firstPass=true;

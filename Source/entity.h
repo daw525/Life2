@@ -20,9 +20,9 @@ typedef struct {
     sample outputs[MAX_SAMPLE];
     int INTEGRATION_TIME;
     int integrationTime;
-    int inputTimeTrue;
-    int outputTimeTrue;
-    int outputTimeFalse;
+    float inputTimeTrue;
+    float outputTimeTrue;
+    float outputTimeFalse;
     int error;
     float trueWeight;
     float falseWeight;

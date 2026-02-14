@@ -97,18 +97,15 @@ bool evaluateMapping(mapping *m) {
     bool inputPortState;
     bool failure=false;
 
-    int result=0;
-
     if (m==NULL) {
-        result = 1;
         failure = true;
     } else {
         for (inputPort=0;inputPort<m->inputPortCount;inputPort++) {
             /* First check there are no NULL pointers */
-            failure = failure | m->inputPorts[inputPort].p == NULL;
+            failure = failure | (m->inputPorts[inputPort].p == NULL);
         }
         
-        failure = failure | m->outputPort.p == NULL;
+        failure = failure | (m->outputPort.p == NULL);
 
         if (failure==false) {
             m->count = 0;

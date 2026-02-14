@@ -1,20 +1,57 @@
 #include "entity.h"
+#include <math.h>
+
+static void log_weights(float *weights, int n) {
+    float sum = 0.0;
+    int i;
+
+    for (i = 0; i < n; i++) {
+        weights[i] = (float)1.0 / (1.0 + log((double)i + 2));
+        sum += weights[i];
+    }
+
+    for (i = 0; i < n; i++) {
+        weights[i] /= sum;
+        //printf("%f\n",weights[i]);
+    }
+}
 
 /*! 
+ * Requirement 1: The software shall attempt to keep its input TRUE.
  * 
- * @param 
+ * Design ideas:
+ * 1.  Are external conditions good or bad? (is input mainly true or mainly false?).
+ * 1a. Count number of cycles where "input is true". >= 50% is mainly true?
+ * 
+ * 2.  Are external conditions getting better, getting worse, how fast are they changing?
+ * 2a. Apply weighting to samples. Most recent sample is weighted more than oldest sample.
+ *     First attempt at doing this using logarithmic weighting (normalised).
+ * 
+ * 2b. If external conditions are getting worse then change output state, else keep current output state.
+ *     TBD
+ * 
+ * 3.  How volatile (how long has it been changing like this?)
+ * 3a. TBD
+ * 
+ * 4.  Do my outputs appear to influence the environment?
+ * 4a. Count number of cycles where "output is true"?
+ * 
+ * @param pointer to entity
  * @return None
  * */
 void processEntity(entity *e) {
     int samplePointer, sampleCount;
     int uninitialisedSampleCount = 0;
+    float weights[MAX_SAMPLE]={0.0};
 
+    /* Pre-calculate sample weighitngs */
+    log_weights(weights, e->INTEGRATION_TIME);
+
+    /* Reciprocate on first pass */
     if (e->firstPass) {
         e->firstPass = false;
         e->output = e->input;
     }
-
-    //e->previousOutput = e->output;
 
     /* Range check pointer first to avoid out of bounds array access */
     if (e->integrationTime >= e->INTEGRATION_TIME) {
@@ -37,71 +74,29 @@ void processEntity(entity *e) {
     e->outputTimeTrue = 0;
     e->outputTimeFalse = 0;
 
-    /*  This could be improved..
-        Give greater weighting to the latest sample. Samples wash out over time. */
-    sampleCount = e->INTEGRATION_TIME; 
+    sampleCount = 0; 
     samplePointer = e->integrationTime;
 
-    while (sampleCount > 0) {
+    while (sampleCount < e->INTEGRATION_TIME) {
         if (e->inputs[samplePointer]==TRUE_SAMPLE) {
-            e->inputTimeTrue++;
+            e->inputTimeTrue = e->inputTimeTrue + weights[sampleCount];
         } else if (e->inputs[samplePointer]==NO_SAMPLE) {
             uninitialisedSampleCount++;
         }
         if (e->outputs[samplePointer]==TRUE_SAMPLE) {
-            e->outputTimeTrue++;
+            e->outputTimeTrue = e->outputTimeTrue + weights[sampleCount];
         } 
-        if (e->outputs[samplePointer]==FALSE_SAMPLE) {
-            e->outputTimeFalse++;
-        } 
-        samplePointer++;
-        if (samplePointer >= e->INTEGRATION_TIME) {
-            samplePointer = 0;
+        samplePointer--;
+        if (samplePointer < 0) {
+            samplePointer = e->INTEGRATION_TIME;
         }
-        sampleCount--;
+        sampleCount++;
     }
 
-    /*  Requirement is to keep input TRUE for as long as possible
-        if input was TRUE for full integration time, this is as good as it can get. Error will be zero in that case. */
-    //e->error = e->INTEGRATION_TIME - e->inputTimeTrue - uninitialisedSampleCount;
+    if (e->inputTimeTrue < 0.5) {
+        e->output = !e->output;
+    }
 
-    /* Instead of error - check which output state is closest to input true time */
-    // if (e->inputTimeTrue - uninitialisedSampleCount - e->outputTimeTrue > e->inputTimeTrue - uninitialisedSampleCount - e->outputTimeFalse) {
-    //     e->output = true;
-    // } else {
-    //     e->output = false;
-    // }
-
-    // if (e->error >= e->outputTimeTrue) {
-    //     e->output = false;
-    // } else if (e->error >= e->outputTimeFalse) {
-    //     e->output = true;
-    // }
-
-    // if (e->error == 0) {
-    //     /* if error is zero, then either outputTimeTrue or outputTimeFalse are INTEGRATION_TIME and the other one is zero */
-    //     e->trueWeight = (float)e->outputTimeTrue;
-    //     e->falseWeight = (float)e->outputTimeFalse;
-    // } else {
-    //     /*  This could be improved..
-    //         Could consider if trend is growing or shirinking..
-    //         How fast is it changing... */
-
-    //     /* */
-    //     e->trueWeight = (float)e->outputTimeTrue / e->error;
-    //     e->falseWeight = (float)e->outputTimeFalse / e->error;
-    //     /*  Integration time is 1, 1 cycle with input false...
-    //         Error = 1...
-    //         outputTrueTime = 0
-    //         outputFalseTime = 1
-    //         trueWeight = 0/1 = 0
-    //         falseWeight = 1/1 = 1
-    //         This is incorrect..
-    //         We have only been false and had no reward, so weighting for true should be increasing...
-    //         Swapping the test below to be true<false, instead of true>=false. This will flip the weighting*/
-    // } 
-
-    //e->output = e->trueWeight >= e->falseWeight;
 
     if (e->flipTime == e->FLIP_TIME) {
         /*  This could be improved..
@@ -157,9 +152,9 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
     if (verbose) {
         printf("%d\t",e->integrationTime);
         printf("%d\t",e->INTEGRATION_TIME);
-        printf("%d\t",e->inputTimeTrue);
-        printf("%d\t",e->outputTimeTrue);
-        printf("%d\t",e->outputTimeFalse);
+        printf("%f\t",e->inputTimeTrue);
+        printf("%f\t",e->outputTimeTrue);
+        printf("%f\t",e->outputTimeFalse);
         printf("%d\t",e->error);
         printf("%f\t",e->trueWeight);
         printf("%f\t",e->falseWeight);

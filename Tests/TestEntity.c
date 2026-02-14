@@ -56,17 +56,17 @@ void test_processEntityFirstPassBehaviour(void) {
     
     testCase=0;
     initialiseTestCase(&tests[testCase],"Sample time 1, input true\0",true,true,1,10);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input false\0",false,false,1,10);
+    initialiseTestCase(&tests[testCase++],"Sample time 1, input false\0",false,true,1,10);
     initialiseTestCase(&tests[testCase++],"Sample time 2, input true\0",true,true,2,10);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input false\0",false,false,2,10);
+    initialiseTestCase(&tests[testCase++],"Sample time 2, input false\0",false,true,2,10);
     initialiseTestCase(&tests[testCase++],"Sample time 1, input true, flip time 1\0",true,true,1,1);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input false, flip time 1\0",false,false,1,1);
+    initialiseTestCase(&tests[testCase++],"Sample time 1, input false, flip time 1\0",false,true,1,1);
     initialiseTestCase(&tests[testCase++],"Sample time 2, input true, flip time 1\0",true,true,2,1);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input false, flip time 1\0",false,false,2,1);
+    initialiseTestCase(&tests[testCase++],"Sample time 2, input false, flip time 1\0",false,true,2,1);
     initialiseTestCase(&tests[testCase++],"Sample time 1, input true, flip time 0\0",true,false,1,0);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input false, flip time 0\0",false,true,1,0);
+    initialiseTestCase(&tests[testCase++],"Sample time 1, input false, flip time 0\0",false,false,1,0);
     initialiseTestCase(&tests[testCase++],"Sample time 2, input true, flip time 0\0",true,false,2,0);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input false, flip time 0\0",false,true,2,0);
+    initialiseTestCase(&tests[testCase++],"Sample time 2, input false, flip time 0\0",false,false,2,0);
 
     for(testCase=0;testCase<MAX_TEST_CASE;testCase++) {
         if (tests[testCase].testEnabled == true) {
@@ -78,27 +78,84 @@ void test_processEntityFirstPassBehaviour(void) {
     }
 }
 
-void test_processEntityFiveCycles(void) {
+void test_processEntityTenCyclesIntegrationTimeTwo(void) {
     #define MAX_CYCLE (10)
     testCase test;
     int cycle;
     bool inputs[MAX_CYCLE] =            {true,   true,  true,   false,  false,  false,  true,   false,  true,   true};
-    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,   false,  false,  false,  false,  true,  true};
+    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   false,   true,  false,  false,  true,  true,  true};
     
-    initialiseTestCase(&test,"Sample time 2, input true\0",true,true,2,20);
+    initialiseTestCase(&test,"Sample time 2\0",true,true,2,20);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             test.e.input = inputs[cycle];
             processEntity(&test.e);
-            printEntityState(cycle,0,&test.e,cycle==0,true);
-            //TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
-            //TEST_ASSERT_FALSE(test.e.firstPass);
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
+void test_processEntityTenCyclesIntegrationTimeOne(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool inputs[MAX_CYCLE] =            {false,   true,  true,   false,  false,  true,  false,   true,  false,  true};
+    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   false,   true,  true,  false,  false,  true,  true};
+    
+    initialiseTestCase(&test,"Sample time 1\0",true,true,1,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            test.e.input = inputs[cycle];
+            processEntity(&test.e);
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
+void test_processEntityTenCyclesIntegrationTimeOneAlwaysOn(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool inputs[MAX_CYCLE] =            {true,   true,  true,   true,  true,  true,  true,   true,  true,  true};
+    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,  true,  true,  true,   true,  true,  true};
+    
+    initialiseTestCase(&test,"Sample time 1\0",true,true,1,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            test.e.input = inputs[cycle];
+            processEntity(&test.e);
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
+void test_processEntityTenCyclesIntegrationTimeOneAlwaysOff(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool inputs[MAX_CYCLE] =            {false,   false,  false,   false,  false,  false,  false,   false,  false,  false};
+    bool expectedOutput[MAX_CYCLE] =    {true,   false,  true,   false,  true,  false,  true,   false,  true,  false};
+    
+    initialiseTestCase(&test,"Sample time 1\0",true,true,1,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            test.e.input = inputs[cycle];
+            processEntity(&test.e);
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
     }
 }
 
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_processEntityFirstPassBehaviour);
-    RUN_TEST(test_processEntityFiveCycles);
+    RUN_TEST(test_processEntityTenCyclesIntegrationTimeTwo);
+    RUN_TEST(test_processEntityTenCyclesIntegrationTimeOne);
+    RUN_TEST(test_processEntityTenCyclesIntegrationTimeOneAlwaysOn);
+    RUN_TEST(test_processEntityTenCyclesIntegrationTimeOneAlwaysOff);
     return UNITY_END();
 }

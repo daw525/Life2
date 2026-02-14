@@ -92,14 +92,17 @@ $(function(){initNavTree('entity_8c.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="entity_8h_source.html">entity.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for entity.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="entity_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwl80_2_desktop_2_programs_2_life2_2_source_2entity_8c" loading="lazy" alt=""/></div>
 <map name="a_c_1_2_users_2dwl80_2_desktop_2_programs_2_life2_2_source_2entity_8c" id="a_c_1_2_users_2dwl80_2_desktop_2_programs_2_life2_2_source_2entity_8c">
-<area shape="rect" title=" " alt="" coords="94,5,259,64"/>
+<area shape="rect" title=" " alt="" coords="136,5,302,64"/>
 <area shape="rect" href="entity_8h.html" title=" " alt="" coords="144,112,208,139"/>
-<area shape="poly" title=" " alt="" coords="177,62,179,97,174,95,175,67"/>
+<area shape="poly" title=" " alt="" coords="207,62,191,99,187,96,204,66"/>
+<area shape="rect" title=" " alt="" coords="232,112,294,139"/>
+<area shape="poly" title=" " alt="" coords="234,62,252,98,247,98,232,67"/>
 <area shape="rect" href="global_8h.html" title=" " alt="" coords="143,187,209,213"/>
 <area shape="poly" title=" " alt="" coords="178,137,179,172,174,170,175,141"/>
 <area shape="rect" title=" " alt="" coords="5,261,70,288"/>
@@ -186,13 +189,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Requirement 1: The software shall attempt to keep its input TRUE.</p>
+<p>Design ideas:</p><ol type="1">
+<li>Are external conditions good or bad? (is input mainly true or mainly false?). 1a. Count number of cycles where "input is true". &gt;= 50% is mainly true?</li>
+<li>Are external conditions getting better, getting worse, how fast are they changing? 2a. Apply weighting to samples. Most recent sample is weighted more than oldest sample. First attempt at doing this using logarithmic weighting (normalised).</li>
+</ol>
+<p>2b. If external conditions are getting worse then change output state, else keep current output state. TBD</p>
+<ol type="1">
+<li>How volatile (how long has it been changing like this?) 3a. TBD</li>
+<li>Do my outputs appear to influence the environment? 4a. Count number of cycles where "output is true"?</li>
+</ol>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">pointer</td><td>to entity </td></tr>
   </table>
   </dd>
 </dl>
-<p>return None </p>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

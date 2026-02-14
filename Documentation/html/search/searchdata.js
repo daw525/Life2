@@ -5,7 +5,7 @@ var indexSectionsWithContent =
   2: "cegmrw",
   3: "aceimprs",
   4: "cdefilmnoprstw",
-  5: "cm",
+  5: "cms",
   6: "efilmnort",
   7: "_mv"
 };

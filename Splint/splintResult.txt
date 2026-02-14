@@ -1,5 +1,20 @@
 Splint 3.1.1 --- 12 April 2003
 
+../Source/entity.c: (in function log_weights)
+../Source/entity.c(9,9): Assignment of double to float:
+    weights[i] = (float)1.0 / (1.0 + log((double)i + 2))
+  To allow all numeric types to match, use +relaxtypes.
+../Source/entity.c: (in function processEntity)
+../Source/entity.c(45,25): Initializer block for weights has 1 element, but
+                              declared as float [10]: 0.0
+  Initializer does not define all elements of a declared array. (Use
+  -initallelements to inhibit warning)
+../Source/entity.c(96,9): Dangerous comparison involving float types:
+                             e->inputTimeTrue < 0.5
+  Two real (float, double, or long double) values are compared directly using a
+  C primitive. This may produce unexpected results since floating point
+  representations are inexact. Instead, compare the difference to FLT_EPSILON
+  or DBL_EPSILON. (Use -realcompare to inhibit warning)
 ../Source/mapping.c: (in function initialisePort)
 ../Source/mapping.c(14,9): Implicitly only storage p->p (type bool *) not
                               released before assignment: p->p = b
@@ -59,4 +74,4 @@ Splint 3.1.1 --- 12 April 2003
     implicitly only: w.regions[0].layers[1].mappings[0].inputPorts[0].p =
     &testCases[iteration].RESET
 
-Finished checking --- 14 code warnings
+Finished checking --- 17 code warnings

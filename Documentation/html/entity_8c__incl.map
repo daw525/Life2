@@ -1,7 +1,9 @@
 <map id="C:/Users/dwl80/Desktop/Programs/Life2/Source/entity.c" name="C:/Users/dwl80/Desktop/Programs/Life2/Source/entity.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="94,5,259,64"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="136,5,302,64"/>
 <area shape="rect" id="Node000002" href="$entity_8h.html" title=" " alt="" coords="144,112,208,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,62,179,97,174,95,175,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,62,191,99,187,96,204,66"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="232,112,294,139"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="234,62,252,98,247,98,232,67"/>
 <area shape="rect" id="Node000003" href="$global_8h.html" title=" " alt="" coords="143,187,209,213"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,137,179,172,174,170,175,141"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,261,70,288"/>

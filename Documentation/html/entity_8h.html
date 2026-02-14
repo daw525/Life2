@@ -152,6 +152,13 @@ Macros</h2></td></tr>
 <tr class="memitem:a29cc2a2fe6d3f7142e197a54d6a91a85" id="r_a29cc2a2fe6d3f7142e197a54d6a91a85"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a29cc2a2fe6d3f7142e197a54d6a91a85">MAX_SAMPLE</a>&#160;&#160;&#160;(10)</td></tr>
 <tr class="memitem:a2c53e41bc85579276be7abf16dca6463" id="r_a2c53e41bc85579276be7abf16dca6463"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a2c53e41bc85579276be7abf16dca6463">MAX_FLIP_TIME</a>&#160;&#160;&#160;(20)</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a6ad492ae3f3437963b8df4ab045165f1" id="r_a6ad492ae3f3437963b8df4ab045165f1"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a6ad492ae3f3437963b8df4ab045165f1">sample</a> { <a class="el" href="#a6ad492ae3f3437963b8df4ab045165f1a0f502825ba454c4c3aac3803ec877034">FALSE_SAMPLE</a> = 0
+, <a class="el" href="#a6ad492ae3f3437963b8df4ab045165f1ad2a7a865c3bb24260f48ea34410eaa34">TRUE_SAMPLE</a> = 1
+, <a class="el" href="#a6ad492ae3f3437963b8df4ab045165f1ad21a1a61b9cde7e413f6e498a3af7d70">NO_SAMPLE</a> = 3
+ }</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1b31bae98a57882159bb308c9aafa344" id="r_a1b31bae98a57882159bb308c9aafa344"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1b31bae98a57882159bb308c9aafa344">processEntity</a> (<a class="el" href="structentity.html">entity</a> *e)</td></tr>
@@ -183,6 +190,26 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="a6ad492ae3f3437963b8df4ab045165f1" name="a6ad492ae3f3437963b8df4ab045165f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad492ae3f3437963b8df4ab045165f1">&#9670;&#160;</a></span>sample</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a6ad492ae3f3437963b8df4ab045165f1">sample</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6ad492ae3f3437963b8df4ab045165f1a0f502825ba454c4c3aac3803ec877034" name="a6ad492ae3f3437963b8df4ab045165f1a0f502825ba454c4c3aac3803ec877034"></a>FALSE_SAMPLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6ad492ae3f3437963b8df4ab045165f1ad2a7a865c3bb24260f48ea34410eaa34" name="a6ad492ae3f3437963b8df4ab045165f1ad2a7a865c3bb24260f48ea34410eaa34"></a>TRUE_SAMPLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6ad492ae3f3437963b8df4ab045165f1ad21a1a61b9cde7e413f6e498a3af7d70" name="a6ad492ae3f3437963b8df4ab045165f1ad21a1a61b9cde7e413f6e498a3af7d70"></a>NO_SAMPLE&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
@@ -254,13 +281,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Requirement 1: The software shall attempt to keep its input TRUE.</p>
+<p>Design ideas:</p><ol type="1">
+<li>Are external conditions good or bad? (is input mainly true or mainly false?). 1a. Count number of cycles where "input is true". &gt;= 50% is mainly true?</li>
+<li>Are external conditions getting better, getting worse, how fast are they changing? 2a. Apply weighting to samples. Most recent sample is weighted more than oldest sample. First attempt at doing this using logarithmic weighting (normalised).</li>
+</ol>
+<p>2b. If external conditions are getting worse then change output state, else keep current output state. TBD</p>
+<ol type="1">
+<li>How volatile (how long has it been changing like this?) 3a. TBD</li>
+<li>Do my outputs appear to influence the environment? 4a. Count number of cycles where "output is true"?</li>
+</ol>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">pointer</td><td>to entity </td></tr>
   </table>
   </dd>
 </dl>
-<p>return None </p>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
