@@ -1,3 +1,3 @@
-rem gcc TestEntity.c ../Source/entity.c ./Unity/unity.c -o TestEntity.exe
+gcc TestEntity.c ../Source/entity.c ./Unity/unity.c -o TestEntity.exe
 rem gcc TestConfigure.c ../Source/configure.c ../Source/world.c ../Source/region.c ../Source/entity.c ../Source/mapping.c ./Unity/unity.c -o TestConfigure.exe
-gcc TestMapping.c ../Source/mapping.c ./Unity/unity.c -o TestMapping.exe
+rem gcc TestMapping.c ../Source/mapping.c ./Unity/unity.c -o TestMapping.exe

@@ -6,12 +6,18 @@
 #define MAX_SAMPLE (10)
 #define MAX_FLIP_TIME   (20)
 
+typedef enum {
+    FALSE_SAMPLE = 0,
+    TRUE_SAMPLE = 1,
+    NO_SAMPLE = 3
+} sample;
+
 typedef struct {
     bool input;
     bool output;
     bool previousOutput;
-    bool inputs[MAX_SAMPLE];
-    bool outputs[MAX_SAMPLE];
+    sample inputs[MAX_SAMPLE];
+    sample outputs[MAX_SAMPLE];
     int INTEGRATION_TIME;
     int integrationTime;
     int inputTimeTrue;
