@@ -123,14 +123,14 @@ bool evaluateMapping(mapping *m) {
                         m->count = m->inputPortCount;
                     }
                 } else {
-                    m->count--;
-                    if (m->count < 0) {
-                        m->count = 0;
-                    }
+                    //m->count--;
+                    //if (m->count < 0) {
+                    //   m->count = 0;
+                    //}
                 }
             }
             /* Threshold comparison with hysterisis */
-            if (m->evaluation == true && m->count <= m->offThreshold) {
+            if (m->evaluation == true && m->count < m->offThreshold) {
                 m->evaluation = false;
             } else if (m->evaluation==false && m->count >= m->onThreshold) {
                 m->evaluation = true;
@@ -157,7 +157,7 @@ void printMappingState(mapping *m) {
         printf("inputPorts[%i].p:\t%d\r\n",i, (int)*m->inputPorts[i].p);
         printf("inputPorts[%i].invert:\t%d\r\n",i, (int)m->inputPorts[i].invert);
     }
-    printf("type:\t%d\r\n", (int)m->type);
+    //printf("type:\t%d\r\n", (int)m->type);
     printf("evaluation:\t%d\r\n", (int)m->evaluation);
     printf("count:\t%d\r\n", m->count);   
     printf("onThreshold:\t%d\r\n", m->onThreshold);

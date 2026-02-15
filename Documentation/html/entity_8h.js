@@ -8,6 +8,7 @@ var entity_8h =
       [ "TRUE_SAMPLE", "entity_8h.html#a6ad492ae3f3437963b8df4ab045165f1ad2a7a865c3bb24260f48ea34410eaa34", null ],
       [ "NO_SAMPLE", "entity_8h.html#a6ad492ae3f3437963b8df4ab045165f1ad21a1a61b9cde7e413f6e498a3af7d70", null ]
     ] ],
+    [ "initialiseEntity", "entity_8h.html#acb1b919f7cd8a443d818b658c7941cda", null ],
     [ "printEntityState", "entity_8h.html#aa401ccac4fd704838a54be7baef5d601", null ],
     [ "processEntity", "entity_8h.html#a1b31bae98a57882159bb308c9aafa344", null ]
 ];

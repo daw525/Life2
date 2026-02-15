@@ -17,7 +17,6 @@ var configure_8c =
       [ "OUTPUT_INVERT", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaacf14c7efefbd888495849af401e3e166", null ],
       [ "ENTITY", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa191ff161671f2d901b7e95db95bd7b8e", null ],
       [ "INTEGRATION_TIME", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaf2ec36659a658f24e2226d3a73cdcaa3", null ],
-      [ "FLIP_TIME", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaa0a087eac34b01ec0e591809a352a5a58", null ],
       [ "FINISHED", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaadbd1812bee789fbf3548cf79d3f2b400", null ],
       [ "MAX_CONFIGURATION_STATE", "configure_8c.html#ab43ea726342d58a47d86f140cfe54deaaeb4087ff55b382429596a0884e8f383c", null ]
     ] ],

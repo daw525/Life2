@@ -1,17 +1,17 @@
 Splint 3.1.1 --- 12 April 2003
 
 ../Source/entity.c: (in function log_weights)
-../Source/entity.c(9,9): Assignment of double to float:
+../Source/entity.c(36,9): Assignment of double to float:
     weights[i] = (float)1.0 / (1.0 + log((double)i + 2))
   To allow all numeric types to match, use +relaxtypes.
 ../Source/entity.c: (in function processEntity)
-../Source/entity.c(45,25): Initializer block for weights has 1 element, but
+../Source/entity.c(72,25): Initializer block for weights has 1 element, but
                               declared as float [10]: 0.0
   Initializer does not define all elements of a declared array. (Use
   -initallelements to inhibit warning)
-../Source/entity.c(108,5): Assignment of double to float:
+../Source/entity.c(135,5): Assignment of double to float:
                               inputThreshold = inputThreshold * 0.5
-../Source/entity.c(111,9): Dangerous comparison involving float types:
+../Source/entity.c(138,9): Dangerous comparison involving float types:
                               e->inputTimeTrue < inputThreshold
   Two real (float, double, or long double) values are compared directly using a
   C primitive. This may produce unexpected results since floating point
@@ -66,6 +66,15 @@ Splint 3.1.1 --- 12 April 2003
                               evaluateMapping(...
   Result returned by function call is not used. If this is intended, can cast
   result to (void) to eliminate message. (Use -retvalbool to inhibit warning)
+../Source/region.c: (in function printRegionState)
+../Source/region.c(39,37): Format argument 2 to printf (%d) expects int gets
+                              bool: r->inputArray[port]
+  Type of parameter is not consistent with corresponding code in format string.
+  (Use -formattype to inhibit warning)
+   ../Source/region.c(39,25): Corresponding format code
+../Source/region.c(59,38): Format argument 2 to printf (%d) expects int gets
+                              bool: r->outputArray[port]
+   ../Source/region.c(59,26): Corresponding format code
 ../Source/world.c: (in function run)
 ../Source/world.c(50,9): Immediate address &testCases[].SET assigned to
     implicitly only: w.regions[0].layers[0].mappings[0].inputPorts[0].p =
@@ -76,4 +85,4 @@ Splint 3.1.1 --- 12 April 2003
     implicitly only: w.regions[0].layers[1].mappings[0].inputPorts[0].p =
     &testCases[iteration].RESET
 
-Finished checking --- 18 code warnings
+Finished checking --- 20 code warnings

@@ -28,7 +28,7 @@ void initialiseTestCase(testCase *t, char *message) {
     initialiseRegion(&t->r);
 
     /* Set up region inputs */
-    t->r.inputCount++;
+    t->r.inputCount = 2;
 
     /* Add layer */
     currentLayer = t->r.layerCount;
@@ -39,15 +39,63 @@ void initialiseTestCase(testCase *t, char *message) {
 
     initialiseMapping(&t->r.layers[currentLayer].mappings[currentMapping],THRESHOLD);
     /* Set input ports */
-    initialisePort(&tempPort,&t->r.inputArray[0],false);
+
+    initialisePort(&tempPort,&t->r.inputArray[0],false);    // set
     addPortToMapping(&t->r.layers[currentLayer].mappings[currentMapping],&tempPort,true);
-   /* Set output port */
-    initialisePort(&tempPort,&t->r.layers[currentLayer].entities[0].input,false);
+
+    initialisePort(&tempPort,&t->r.layers[0].entities[0].output,false);
+    addPortToMapping(&t->r.layers[currentLayer].mappings[currentMapping],&tempPort,true);
+
+    /* Set output port */
+    initialisePort(&tempPort,&t->r.layers[currentLayer].entities[0].input,true);    // invert output
     addPortToMapping(&t->r.layers[currentLayer].mappings[currentMapping],&tempPort,false);
 
+    
+    /* Set mapping threshold */
+    setMappingThresholds(&t->r.layers[currentLayer].mappings[currentMapping],1,1);  // NOR gate
+
+    /* Next mapping */
     t->r.layers[currentLayer].mappingCount++;
     currentMapping = t->r.layers[currentLayer].mappingCount;
+
+    /* Add entities */
+    currentEntity = t->r.layers[currentLayer].entityCount;
+    initialiseEntity(&t->r.layers[currentLayer].entities[currentEntity],1);
+
+    /* Next entity */
+    t->r.layers[currentLayer].entityCount++;
+    currentEntity = t->r.layers[currentLayer].entityCount;
+
+    /* Next layer  ------------------------------------------------ */
+    t->r.layerCount++;
+
+    /* Add layer */
+    currentLayer = t->r.layerCount;
+    initialiseLayer(&t->r.layers[currentLayer]);
+
+    /* Add mappings */
+    currentMapping = t->r.layers[currentLayer].mappingCount;
+
+    initialiseMapping(&t->r.layers[currentLayer].mappings[currentMapping],THRESHOLD);
+    /* Set input ports */
+
+    initialisePort(&tempPort,&t->r.inputArray[1],false);    // reset
+    addPortToMapping(&t->r.layers[currentLayer].mappings[currentMapping],&tempPort,true);
+
+    initialisePort(&tempPort,&t->r.layers[0].entities[0].output,false);
+    addPortToMapping(&t->r.layers[currentLayer].mappings[currentMapping],&tempPort,true);
+
+    /* Set output port */
+    initialisePort(&tempPort,&t->r.outputArray[0],true);   // bounrdary
+    addPortToMapping(&t->r.layers[currentLayer].mappings[currentMapping],&tempPort,false);
+
+    
+    /* Set mapping threshold */
+    setMappingThresholds(&t->r.layers[currentLayer].mappings[currentMapping],1,1);  // NOR gate
+
     /* Next mapping */
+    t->r.layers[currentLayer].mappingCount++;
+    currentMapping = t->r.layers[currentLayer].mappingCount;
 
     /* Add entities */
     currentEntity = t->r.layers[currentLayer].entityCount;
@@ -62,8 +110,7 @@ void initialiseTestCase(testCase *t, char *message) {
     currentLayer = t->r.layerCount;
 
     /* Set up region outputs */
-    t->r.outputArray[0] = &t->r.layers[0].entities[0].output;
-    t->r.outputCount++;
+    t->r.outputCount = 2;
 
 }
 
@@ -76,19 +123,44 @@ void tearDown(void) {
 }
 
 void test_processRegion(void) {
-    testCase tests[MAX_TEST_CASE];
-    int testCase;
+    #define MAX_TEST    (20)
+    testCase test;
+    int cycle;
+    memset(&test,0,sizeof(test));
 
-    testCase = 0;
-    initialiseTestCase(&tests[testCase],"Setting up test framework for region\0");
+    typedef struct {
+        bool set;
+        bool reset;
+    } srLatch;
 
-    for(testCase=0;testCase<MAX_TEST_CASE;testCase++) {
-        if (tests[testCase].testEnabled == true) {
+    srLatch srl[20] = {  {false, false},
+                        {false,  false},
+                        {false, false},
+                        {false, false},
+                        {false,  false},
+                        {false, false}};
 
-            processRegion(&tests[testCase].r);
-            printRegionState(&tests[testCase].r);
+    initialiseTestCase(&test,"Setting up test framework for region\0");
+
+    for(cycle=0;cycle<MAX_TEST_CASE;cycle++) {
+            switch (cycle) {
+                case 3:
+                    test.r.inputArray[0] = true;
+                break;
+                case 7:
+                    test.r.inputArray[1] = true;
+                break;
+                default:
+                    test.r.inputArray[0] = false;
+                    test.r.inputArray[1] = false;
+                break;
+            }
+            printf("Cycle: %i\n",cycle);
+            printf("Set: %d Clear: %d\n", test.r.inputArray[0],test.r.inputArray[1]);            
+            processRegion(&test.r);
+            //printRegionState(&tests[testCase].r);
+            printf("Q: %d NotQ: %d\n\n", test.r.outputArray[0], test.r.layers[0].entities[0].output);
             //TEST_ASSERT_EQUAL_MESSAGE(tests[testCase].expectedOutput,tests[testCase].e.output,tests[testCase].message);
-        }
     }
 }
 

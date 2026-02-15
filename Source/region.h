@@ -24,7 +24,7 @@ typedef struct {
     int layerCount;
     layer layers[MAX_LAYER];
     int outputCount;
-    bool *outputArray[MAX_OUTPUT];
+    bool outputArray[MAX_OUTPUT];
 } region;
 
 void processRegion(region *r);
