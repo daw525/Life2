@@ -15,7 +15,6 @@ typedef enum {
 typedef struct {
     bool input;
     bool output;
-    bool previousOutput;
     sample inputs[MAX_SAMPLE];
     sample outputs[MAX_SAMPLE];
     int INTEGRATION_TIME;
@@ -23,14 +22,10 @@ typedef struct {
     float inputTimeTrue;
     float outputTimeTrue;
     float outputTimeFalse;
-    int error;
-    float trueWeight;
-    float falseWeight;
-    int FLIP_TIME;
-    int flipTime;
     bool firstPass; 
 } entity;
 
+void initialiseEntity(entity *e, int integrationTime);
 void processEntity(entity *e);
 void printEntityState(int time, int identifier, entity *e, bool withHeader, bool verbose);
 

@@ -23,56 +23,31 @@ void tearDown(void) {
 
 }
 
-void initialiseTestCase(testCase *t, char *m, bool input, bool expectedOutput, int integrationTime, int flipTime) {
+void initialiseTestCase(testCase *t, char *m, bool input, bool expectedOutput, int integrationTime) {
     int sample;
     t->testEnabled = true;
     sprintf(t->message, m);
     t->expectedOutput = expectedOutput;
+    initialiseEntity(&t->e, integrationTime);
     t->e.input = input;
-    t->e.output = !(expectedOutput);    /* Initialise to inverse of expected so change can be observed */
-    t->e.previousOutput = false;
-    for(sample=0;sample<MAX_SAMPLE;sample++) {    
-        t->e.inputs[sample] = NO_SAMPLE;
-        t->e.outputs[sample] = NO_SAMPLE;
-    }
-    t->e.INTEGRATION_TIME = integrationTime;
-    t->e.integrationTime = 0;
-    t->e.inputTimeTrue = 0;
-    t->e.outputTimeTrue = 0;
-    t->e.outputTimeFalse = 0;
-    t->e.error = 0;
-    t->e.trueWeight = 0;
-    t->e.falseWeight = 0;
-    t->e.FLIP_TIME = flipTime;
-    t->e.flipTime = 0;
-    t->e.firstPass = true; 
+    t->e.output = !expectedOutput;
 }
 
 void test_processEntityFirstPassBehaviour(void) {
     testCase tests[MAX_TEST_CASE];
     int testCase;
-
     memset(tests,0,sizeof(tests));
     
     testCase=0;
-    initialiseTestCase(&tests[testCase],"Sample time 1, input true\0",true,true,1,10);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input false\0",false,true,1,10);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input true\0",true,true,2,10);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input false\0",false,true,2,10);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input true, flip time 1\0",true,true,1,1);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input false, flip time 1\0",false,true,1,1);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input true, flip time 1\0",true,true,2,1);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input false, flip time 1\0",false,true,2,1);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input true, flip time 0\0",true,false,1,0);
-    initialiseTestCase(&tests[testCase++],"Sample time 1, input false, flip time 0\0",false,false,1,0);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input true, flip time 0\0",true,false,2,0);
-    initialiseTestCase(&tests[testCase++],"Sample time 2, input false, flip time 0\0",false,false,2,0);
+    initialiseTestCase(&tests[testCase],"Sample time 1, input true\0",true,true,1);
+    initialiseTestCase(&tests[testCase++],"Sample time 1, input false\0",false,true,1);
+    initialiseTestCase(&tests[testCase++],"Sample time 2, input true\0",true,true,2);
+    initialiseTestCase(&tests[testCase++],"Sample time 2, input false\0",false,true,2);
 
     for(testCase=0;testCase<MAX_TEST_CASE;testCase++) {
         if (tests[testCase].testEnabled == true) {
-
             processEntity(&tests[testCase].e);
-
+            //printEntityState(testCase,0,&tests[testCase].e,testCase==0,true);
             TEST_ASSERT_EQUAL_MESSAGE(tests[testCase].expectedOutput,tests[testCase].e.output,tests[testCase].message);
         }
     }
@@ -81,11 +56,12 @@ void test_processEntityFirstPassBehaviour(void) {
 void test_processEntityTenCyclesIntegrationTimeTwo(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool inputs[MAX_CYCLE] =            {true,   true,  true,   false,  false,  false,  true,   false,  true,   true};
     bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   false,   true,  false,  false,  true,  true,  true};
     
-    initialiseTestCase(&test,"Sample time 2\0",true,true,2,20);
+    initialiseTestCase(&test,"Sample time 2\0",true,true,2);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             test.e.input = inputs[cycle];
@@ -99,11 +75,12 @@ void test_processEntityTenCyclesIntegrationTimeTwo(void) {
 void test_processEntityTenCyclesIntegrationTimeOne(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool inputs[MAX_CYCLE] =            {false,   true,  true,   false,  false,  true,  false,   true,  false,  true};
     bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   false,   true,  true,  false,  false,  true,  true};
     
-    initialiseTestCase(&test,"Sample time 1\0",true,true,1,20);
+    initialiseTestCase(&test,"Sample time 1\0",true,true,1);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             test.e.input = inputs[cycle];
@@ -117,11 +94,12 @@ void test_processEntityTenCyclesIntegrationTimeOne(void) {
 void test_processEntityTenCyclesIntegrationTimeOneAlwaysOn(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool inputs[MAX_CYCLE] =            {true,   true,  true,   true,  true,  true,  true,   true,  true,  true};
     bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,  true,  true,  true,   true,  true,  true};
     
-    initialiseTestCase(&test,"Sample time 1\0",true,true,1,20);
+    initialiseTestCase(&test,"Sample time 1\0",true,true,1);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             test.e.input = inputs[cycle];
@@ -135,11 +113,12 @@ void test_processEntityTenCyclesIntegrationTimeOneAlwaysOn(void) {
 void test_processEntityTenCyclesIntegrationTimeOneAlwaysOff(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool inputs[MAX_CYCLE] =            {false,   false,  false,   false,  false,  false,  false,   false,  false,  false};
     bool expectedOutput[MAX_CYCLE] =    {true,   false,  true,   false,  true,  false,  true,   false,  true,  false};
     
-    initialiseTestCase(&test,"Sample time 1\0",true,true,1,20);
+    initialiseTestCase(&test,"Sample time 1\0",true,true,1);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             test.e.input = inputs[cycle];
@@ -153,12 +132,13 @@ void test_processEntityTenCyclesIntegrationTimeOneAlwaysOff(void) {
 void test_processEntityTrueIsRewarded(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool firstInput = false;
     bool previousOutput;
     bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,  true,  true, true,  true,   true,  true};
     
-    initialiseTestCase(&test,"True is rewarded\0",true,true,1,20);
+    initialiseTestCase(&test,"True is rewarded\0",true,true,1);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             if(cycle==0) {
@@ -177,13 +157,14 @@ void test_processEntityTrueIsRewarded(void) {
 void test_processEntityFalseIsRewarded(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool firstInput = true;
     bool previousOutput;
 
     bool expectedOutput[MAX_CYCLE] =    {true,   false,  false,   false,  false, false,  false, false,  false,   false};
 
-    initialiseTestCase(&test,"False is rewarded\0",true,true,1,20);
+    initialiseTestCase(&test,"False is rewarded\0",true,true,1);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             if(cycle==0) {
@@ -202,12 +183,13 @@ void test_processEntityFalseIsRewarded(void) {
 void test_processEntityTrueIsRewardedWithRandom(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool firstInput = false;
     bool previousOutput;
     bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,  true,  true, true,  true,   true,  true};
     
-    initialiseTestCase(&test,"True is rewarded\0",true,true,3,20);
+    initialiseTestCase(&test,"True is rewarded\0",true,true,3);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             if(cycle==0) {
@@ -228,12 +210,13 @@ void test_processEntityTrueIsRewardedWithRandom(void) {
 void test_processEntityFalseIsRewardedWithRandom(void) {
     #define MAX_CYCLE (10)
     testCase test;
+    memset(&test,0,sizeof(test));
     int cycle;
     bool firstInput = true;
     bool previousOutput;
     bool expectedOutput[MAX_CYCLE] =    {true,   false,  false,   false,  false, false,  false, false,  false,   false};
     
-    initialiseTestCase(&test,"False is rewarded\0",true,true,5,20);
+    initialiseTestCase(&test,"False is rewarded\0",true,true,5);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             switch (cycle) {

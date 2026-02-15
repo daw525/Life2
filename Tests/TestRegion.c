@@ -11,32 +11,6 @@ typedef struct {
     region r;
 } testCase;
 
-//void initialiseMapping(mapping *m) {
-
-//}
-
-void initialiseEntity(entity *e) {
-    /* Need to move this into entity.c */
-    int sample;
-    e->input = false;
-    e->output = false;
-    e->previousOutput = false;
-    for(sample=0;sample<MAX_SAMPLE;sample++) {    
-        e->inputs[sample] = NO_SAMPLE;
-        e->outputs[sample] = NO_SAMPLE;
-    }
-    e->INTEGRATION_TIME = 1;
-    e->integrationTime = 0;
-    e->inputTimeTrue = 0;
-    e->outputTimeTrue = 0;
-    e->outputTimeFalse = 0;
-    e->error = 0;
-    e->trueWeight = 0;
-    e->falseWeight = 0;
-    e->FLIP_TIME = 20;
-    e->flipTime = 0;
-    e->firstPass = true; 
-}
 
 void initialiseLayer(layer *l) {
 
@@ -77,7 +51,7 @@ void initialiseTestCase(testCase *t, char *message) {
 
     /* Add entities */
     currentEntity = t->r.layers[currentLayer].entityCount;
-    initialiseEntity(&t->r.layers[currentLayer].entities[currentEntity]);
+    initialiseEntity(&t->r.layers[currentLayer].entities[currentEntity],1);
 
     /* Next entity */
     t->r.layers[currentLayer].entityCount++;
