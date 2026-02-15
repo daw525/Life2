@@ -225,15 +225,7 @@ static bool parseLine(char *line) {
                                 layer = r->layerCount - 1;
                                 mapping = r->layers[layer].mappingCount - 1;
                                 inputPort = r->layers[layer].mappings[mapping].inputPortCount - 1;
-                                if (portFromLayer == layer) {
-                                    /* If in same layer, need to use previous output as current cycle not caluclated yet */
-                                    inputPortBool = &r->layers[portFromLayer].entities[dataInt].previousOutput;
-                                } else {
-                                    /* Entity from any other layer can use output.
-                                    for Entities in layers above, we get their latest output
-                                    for entities in layers below, we get their previous output */
-                                    inputPortBool = &r->layers[portFromLayer].entities[dataInt].output;
-                                }
+                                inputPortBool = &r->layers[portFromLayer].entities[dataInt].output;
                                 r->layers[layer].mappings[mapping].inputPorts[inputPort].p = inputPortBool;
                         } else {
                             failure = true;
@@ -306,9 +298,9 @@ static bool parseLine(char *line) {
 
                         case(FLIP_TIME):
                             if (r != NULL) {
-                                layer = r->layerCount - 1;
-                                entity = r->layers[layer].entityCount - 1;
-                                r->layers[layer].entities[entity].FLIP_TIME = dataInt;
+                                //layer = r->layerCount - 1;
+                                //entity = r->layers[layer].entityCount - 1;
+                                //r->layers[layer].entities[entity].FLIP_TIME = dataInt;
                                 //printRegionState(r);
                             } else {
                                 failure = true;

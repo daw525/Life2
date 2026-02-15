@@ -61,6 +61,10 @@ void initialiseTestCase(testCase *t, char *message) {
     t->r.layerCount++;
     currentLayer = t->r.layerCount;
 
+    /* Set up region outputs */
+    t->r.outputArray[0] = &t->r.layers[0].entities[0].output;
+    t->r.outputCount++;
+
 }
 
 void setUp(void) {

@@ -49,4 +49,5 @@ void printRegionState(region *r) {
             printMappingState(&r->layers[layer].mappings[mapping]);
         }
      }
+    printf("outputCount: %d\r\n",r->outputCount);
 }
