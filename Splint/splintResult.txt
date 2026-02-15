@@ -9,8 +9,10 @@ Splint 3.1.1 --- 12 April 2003
                               declared as float [10]: 0.0
   Initializer does not define all elements of a declared array. (Use
   -initallelements to inhibit warning)
-../Source/entity.c(96,9): Dangerous comparison involving float types:
-                             e->inputTimeTrue < 0.5
+../Source/entity.c(108,5): Assignment of double to float:
+                              inputThreshold = inputThreshold * 0.5
+../Source/entity.c(111,9): Dangerous comparison involving float types:
+                              e->inputTimeTrue < inputThreshold
   Two real (float, double, or long double) values are compared directly using a
   C primitive. This may produce unexpected results since floating point
   representations are inexact. Instead, compare the difference to FLT_EPSILON
@@ -74,4 +76,4 @@ Splint 3.1.1 --- 12 April 2003
     implicitly only: w.regions[0].layers[1].mappings[0].inputPorts[0].p =
     &testCases[iteration].RESET
 
-Finished checking --- 17 code warnings
+Finished checking --- 18 code warnings

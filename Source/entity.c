@@ -43,6 +43,8 @@ void processEntity(entity *e) {
     int samplePointer, sampleCount;
     int uninitialisedSampleCount = 0;
     float weights[MAX_SAMPLE]={0.0};
+    float inputThreshold;
+    int i;
 
     /* Pre-calculate sample weighitngs */
     log_weights(weights, e->INTEGRATION_TIME);
@@ -88,12 +90,25 @@ void processEntity(entity *e) {
         } 
         samplePointer--;
         if (samplePointer < 0) {
-            samplePointer = e->INTEGRATION_TIME;
+            samplePointer = e->INTEGRATION_TIME-1;
         }
         sampleCount++;
     }
 
-    if (e->inputTimeTrue < 0.5) {
+    /* Need to lower threshold appropriately until enough samples have been captured */
+    /* Just testing this out for now...*/
+    inputThreshold = 0;
+    //printf("INT: %d\tUNINIT: %d\n",e->INTEGRATION_TIME,uninitialisedSampleCount);
+    for (i=0;i<e->INTEGRATION_TIME-uninitialisedSampleCount;i++) {
+        //printf("weight: %f\n", weights[i]);        
+        inputThreshold = inputThreshold + weights[i];
+        //printf("IPT: %f\n", inputThreshold);
+    }
+
+    inputThreshold = inputThreshold * 0.5;
+    //printf("IPT 0.5: %f\n", inputThreshold);
+
+    if (e->inputTimeTrue < inputThreshold) {
         e->output = !e->output;
     }
 
@@ -124,7 +139,7 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
         printf("ID\t");
         printf("IP\t");
         printf("OP\t");
-        printf("pOP\t");
+        //printf("pOP\t");
 
         if (verbose) {
             printf("iT\t");
@@ -136,8 +151,8 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
             printf("trueWeight\t");
             printf("falseWeight\t");
             printf("F_T\t");
-            printf("flipT\t");
-            printf("fP\t");
+            //printf("flipT\t");
+            //printf("fP\t");
         }
 
         printf("\n");
@@ -147,7 +162,7 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
     printf("%d\t",identifier);
     printf("%d\t",(int)e->input);
     printf("%d\t",(int)e->output);
-    printf("%d\t",(int)e->previousOutput);
+    //printf("%d\t",(int)e->previousOutput);
     
     if (verbose) {
         printf("%d\t",e->integrationTime);
@@ -158,8 +173,8 @@ void printEntityState(int time, int identifier, entity *e, bool withHeader, bool
         printf("%d\t",e->error);
         printf("%f\t",e->trueWeight);
         printf("%f\t",e->falseWeight);
-        printf("%d\t",e->FLIP_TIME);
-        printf("%d\t",e->flipTime);
+        //printf("%d\t",e->FLIP_TIME);
+        //printf("%d\t",e->flipTime);
         printf("%d\t",(int)e->firstPass);
 
         for(sample=0;sample<e->INTEGRATION_TIME;sample++) {

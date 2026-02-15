@@ -150,6 +150,113 @@ void test_processEntityTenCyclesIntegrationTimeOneAlwaysOff(void) {
     }
 }
 
+void test_processEntityTrueIsRewarded(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool firstInput = false;
+    bool previousOutput;
+    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,  true,  true, true,  true,   true,  true};
+    
+    initialiseTestCase(&test,"True is rewarded\0",true,true,1,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            if(cycle==0) {
+                test.e.input = firstInput;
+            } else {
+                test.e.input = previousOutput;
+            }
+            processEntity(&test.e);
+            previousOutput = test.e.output;
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
+void test_processEntityFalseIsRewarded(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool firstInput = true;
+    bool previousOutput;
+
+    bool expectedOutput[MAX_CYCLE] =    {true,   false,  false,   false,  false, false,  false, false,  false,   false};
+
+    initialiseTestCase(&test,"False is rewarded\0",true,true,1,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            if(cycle==0) {
+                test.e.input = firstInput;
+            } else {
+                test.e.input = !previousOutput;
+            }
+            processEntity(&test.e);
+            previousOutput = test.e.output;
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
+void test_processEntityTrueIsRewardedWithRandom(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool firstInput = false;
+    bool previousOutput;
+    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   true,  true,  true, true,  true,   true,  true};
+    
+    initialiseTestCase(&test,"True is rewarded\0",true,true,3,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            if(cycle==0) {
+                test.e.input = firstInput;
+            } else if (cycle==4) {
+                test.e.input = false;
+            } else {
+                test.e.input = previousOutput;
+            }
+            processEntity(&test.e);
+            previousOutput = test.e.output;
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
+void test_processEntityFalseIsRewardedWithRandom(void) {
+    #define MAX_CYCLE (10)
+    testCase test;
+    int cycle;
+    bool firstInput = true;
+    bool previousOutput;
+    bool expectedOutput[MAX_CYCLE] =    {true,   false,  false,   false,  false, false,  false, false,  false,   false};
+    
+    initialiseTestCase(&test,"False is rewarded\0",true,true,5,20);
+
+    for(cycle=0;cycle<MAX_CYCLE;cycle++) {
+            switch (cycle) {
+                case 0:
+                    test.e.input = firstInput;
+                break;
+                case 6:
+                case 7:
+                    /* Sample time 5 can tolerate 2 false but not 3 */
+                    test.e.input = false;
+                break;
+                default:
+                    test.e.input = !previousOutput;
+                break;
+            }
+            processEntity(&test.e);
+            previousOutput = test.e.output;
+            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
+            TEST_ASSERT_FALSE(test.e.firstPass);
+    }
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_processEntityFirstPassBehaviour);
@@ -157,5 +264,10 @@ int main(void) {
     RUN_TEST(test_processEntityTenCyclesIntegrationTimeOne);
     RUN_TEST(test_processEntityTenCyclesIntegrationTimeOneAlwaysOn);
     RUN_TEST(test_processEntityTenCyclesIntegrationTimeOneAlwaysOff);
+    RUN_TEST(test_processEntityTrueIsRewarded);
+    RUN_TEST(test_processEntityFalseIsRewarded);
+    RUN_TEST(test_processEntityTrueIsRewardedWithRandom);
+    RUN_TEST(test_processEntityFalseIsRewardedWithRandom);
+    
     return UNITY_END();
 }
