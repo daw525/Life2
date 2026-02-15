@@ -17,7 +17,6 @@ typedef enum {
     OUTPUT_INVERT,
     ENTITY,
     INTEGRATION_TIME,
-    FLIP_TIME,
     FINISHED,
     MAX_CONFIGURATION_STATE
 } configurationStateEnum;
@@ -38,7 +37,6 @@ static char configurationStateTokens[MAX_CONFIGURATION_STATE][MAX_TOKEN_LENGTH] 
     "OUTPUT_INVERT\0",
     "ENTITY\0",
     "INTEGRATION_TIME\0",
-    "FLIP_TIME\0",
     "FINISHED\0"
 };
 
@@ -65,8 +63,7 @@ static configurationState configurationStates[MAX_CONFIGURATION_STATE] = {
     {0,             MAX_ENTITY,     {OUTPUT_INVERT,MAX_CONFIGURATION_STATE}},
     {0,             2,              {ENTITY,MAX_CONFIGURATION_STATE}},
     {0,             MAX_ENTITY,     {INTEGRATION_TIME,MAX_CONFIGURATION_STATE}},
-    {0,             MAX_SAMPLE,     {FLIP_TIME,MAX_CONFIGURATION_STATE}},
-    {0,             MAX_FLIP_TIME,  {ENTITY,LAYER,REGION,FINISHED,MAX_CONFIGURATION_STATE}}
+    {0,             MAX_SAMPLE,     {ENTITY,LAYER,REGION,FINISHED,MAX_CONFIGURATION_STATE}}
 };
 
 
@@ -294,17 +291,6 @@ static bool parseLine(char *line) {
                             } else {
                                 failure = true;
                             } 
-                        break;
-
-                        case(FLIP_TIME):
-                            if (r != NULL) {
-                                //layer = r->layerCount - 1;
-                                //entity = r->layers[layer].entityCount - 1;
-                                //r->layers[layer].entities[entity].FLIP_TIME = dataInt;
-                                //printRegionState(r);
-                            } else {
-                                failure = true;
-                            }
                         break;
 
                         case(FINISHED):
