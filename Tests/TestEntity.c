@@ -59,14 +59,15 @@ void test_processEntityTenCyclesIntegrationTimeTwo(void) {
     memset(&test,0,sizeof(test));
     int cycle;
     bool inputs[MAX_CYCLE] =            {true,   true,  true,   false,  false,  false,  true,   false,  true,   true};
-    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   false,   true,  false,  false,  true,  true,  true};
+    bool expectedOutput[MAX_CYCLE] =    {true,   true,  true,   false,   false,  true,  true,  false,  true,  true};
     
     initialiseTestCase(&test,"Sample time 2\0",true,true,2);
 
     for(cycle=0;cycle<MAX_CYCLE;cycle++) {
             test.e.input = inputs[cycle];
             processEntity(&test.e);
-            //printEntityState(cycle,0,&test.e,cycle==0,true);
+            printEntityState(cycle,0,&test.e,cycle==0,true);
+            //printf("%i\n",cycle);
             TEST_ASSERT_EQUAL_MESSAGE(expectedOutput[cycle],test.e.output,test.message);
             TEST_ASSERT_FALSE(test.e.firstPass);
     }

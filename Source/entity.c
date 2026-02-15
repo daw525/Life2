@@ -114,7 +114,9 @@ void processEntity(entity *e) {
         }
         if (e->outputs[samplePointer]==TRUE_SAMPLE) {
             e->outputTimeTrue = e->outputTimeTrue + weights[sampleCount];
-        } 
+        } else if (e->outputs[samplePointer]==FALSE_SAMPLE) {
+            e->outputTimeFalse = e->outputTimeFalse + weights[sampleCount];
+        }
         samplePointer--;
         if (samplePointer < 0) {
             samplePointer = e->INTEGRATION_TIME-1;
@@ -135,8 +137,14 @@ void processEntity(entity *e) {
     inputThreshold = inputThreshold * 0.5;
     //printf("IPT 0.5: %f\n", inputThreshold);
 
-    if (e->inputTimeTrue < inputThreshold) {
-        e->output = !e->output;
+    //if (e->inputTimeTrue < inputThreshold) {
+    //    e->output = !e->output;
+    //}
+
+    if (e->inputTimeTrue < e->outputTimeTrue) {
+        e->output = false;
+    } else if (e->inputTimeTrue < e->outputTimeFalse) {
+        e->output = true;
     }
 
     /* Just increment the pointer here, it will wrap around to zero next call if there is an overflow */
